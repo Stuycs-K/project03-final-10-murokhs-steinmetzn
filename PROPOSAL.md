@@ -2,28 +2,31 @@
 
 ## Group Members:
 
-names here.
+Sasha Murokh and Naomi Steinmetz
        
 # Intentions:
 
-A statement of the problem you are solving and/or a high level description of the project.
+We will be building a terminal interface that is inspired by Spotify, building off of the music lab.
     
 # Intended usage:
 
-A description as to how the project will be used (describe the user interface).
+Prints and waits for user input
+Show playlists to user: There will be some pre-made playlists from which the user can play. 
+User can load existing directories of mp3s onto a playlist (create new/add to existing)
+
   
 # Technical Details:
 
-A description of your technical design. This should include:
-   
-How you will be using the topics covered in class in the project.
-     
-How you are breaking down the project and who is responsible for which parts.
-  
-What data structures you will be using and how.
-     
-What algorithms and /or data structures you will be using, and how.
+We will be building on the music library lab to incorporate new elements that we have covered since. Utilizing the base code from the lab (ALLOCATING MEMORY), we will add functions that can automatically add songs + artists based on mp3 file metadata/tags in a given directory (WORKING WITH FILES/FINDING INFORMATION ABOUT FILES). If time permits, we will allow the user to modify the information on these tags (WORKING WITH FILES/FINDING INFORMATION ABOUT FILES). Also, music playlists can be written to and read from files (WORKING WITH FILES). The user will also be able to play songs (PROCESSES - FORK EXEC), which will either be simulated on the terminal or launch a media player. A sighandler will be implemented for pausing music, or cleanly exiting the program while saving the playlist to a file (SIGNALS).
     
 # Intended pacing:
 
-A timeline with expected completion dates of parts of the project.
+Jan 8: song node modifications and working functionality of initial lab adjustment
+Jan 10: working UI for all functions user will be able to access
+Jan 13: reading from mp3 files
+Jan 15: play songs (simulated on terminal)
+Jan 15: playlist read/write
+Jan 17: signal stuff
+Jan 19: optional features (modify mp3 file tags, play songs in media player, cleaner UI)
+Jan 20: record video
+
