@@ -12,7 +12,7 @@ We will be building a terminal interface that is inspired by Spotify, building o
 
 Prints and waits for user input
 Show playlists to user: There will be some pre-made playlists from which the user can play. 
-User can load existing directories of mp3s onto a playlist (create new/add to existing)
+There will be some pre-made playlists from which the user can play. Upon running, the user will be prompted with a menu from which they can choose a command (such as “create playlist” or “view playlists”). The user will continue to be prompted for more information (such as playlist name/directories of mp3s to add) based on their choice. 
 
   
 # Technical Details:
