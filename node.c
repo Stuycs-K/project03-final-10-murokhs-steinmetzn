@@ -4,10 +4,13 @@
 #include <stdlib.h>
 #include <time.h>
 
-struct song_node * insert_front(struct song_node * list, char* artist, char* title){
+struct song_node * insert_front(struct song_node * list, char* artist, char* title, char* album, char* genre, int year){
   struct song_node*m = (struct song_node*) malloc(sizeof(struct song_node));
   strcpy(m->artist, artist);
   strcpy(m->title, title);
+  strcpy(m->album, album);
+  strcpy(m->genre, genre);
+  m->year = year;
   m->next = list;
   return m;
 }
@@ -28,7 +31,7 @@ void print_song_list(struct song_node * list){
 }
 
 void print_node(struct song_node * song){
-  printf("{%s, %s}", song->artist, song->title);
+  printf("{%s, %s, %s, %s, %d}", song->artist, song->title, song->album, song->genre, song->year);
 }
 
 int songcmp(struct song_node * a, struct song_node * b) { //if a>b, +1;if a<b, -1
@@ -51,15 +54,18 @@ int songcmp(struct song_node * a, struct song_node * b) { //if a>b, +1;if a<b, -
   return strcasecmp(m,n);
 }
 
-struct song_node * insert_alphabetical(struct song_node * list, char* artist, char* title){
+struct song_node * insert_alphabetical(struct song_node * list, char* artist, char* title, char* album, char* genre, int year){
   if (list==NULL){ //if list is empty
-    list = insert_front(list, artist, title);
+    list = insert_front(list, artist, title, album, genre, year);
     return list;
   }
   struct song_node * begin = list;
   struct song_node * new_song = (struct song_node*) malloc(sizeof(struct song_node));
   strcpy(new_song->artist, artist);
   strcpy(new_song->title, title);
+  strcpy(new_song->album, album);
+  strcpy(new_song->genre, genre);
+  new_song->year = year;
   if (songcmp(new_song,list)<1) { //if new is smallest, add to front, return itself
     new_song->next=list;
     return new_song;
