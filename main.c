@@ -22,7 +22,7 @@ int main(){
     song_list = insert_alphabetical(song_list, songs[i][0], songs[i][1], songs[i][2], songs[i][3], 2);
     add(library, songs[i][0], songs[i][1], songs[i][2], songs[i][3], 2);
   }
-  printf("LINKED LIST TESTS\n====================================\n\nTesting print_list:\n\t");
+  printf("LINKED LIST TESTS\n====================================\n\nTesting print_song_list:\n\t");
   print_song_list(song_list);
   printf("====================================\n\nTesting print_node:\n\t");
   print_node(song_list);
@@ -47,5 +47,8 @@ int main(){
   printf("====================================\n\nTesting shuffle:\n");
 
   shuffle(library, 7);
+
+  printf("====================================\n\nPrinting Library...\n");
+  print_library(library);
   reset(library);
 }
