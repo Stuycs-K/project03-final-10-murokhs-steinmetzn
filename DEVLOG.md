@@ -18,11 +18,11 @@ full class period
 
 ## Naomi Steinmetz
 
-### 2024-01-06 - Brief description
+### 2024-01-06 - Proposal/Discussion/README
 - Discussed final ideas for project
 - Worked on proposal.md
-- Created files
+- Created library files
 - Discussed which lab we were using for intial code
 
-### 2024-01-03 - Brief description
-Expanded description including how much time was spent on task.
+### 2024-01-06 - Main File
+- Created main file
