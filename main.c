@@ -7,23 +7,23 @@
 int main(){
   struct song_node* song_list = NULL;
   struct song_node ** library = init();
-  char songs[9][2][100 * sizeof(char)] = {
-    {"The Beatles", "I Will"},
-    {"The Beatles", "Julia"},
-    {"Dire Straits", "Sultans of Swing"},
-    {"Steely Dan", "Dirty Work"},
-    {"Paul Mccartney","Don't Let It Bring You Down"},
-    {"The Pierces", "You'll Be Mine"},
-    {"zxcursed", "never enough"},
-    {"The Who", "Behind Blue Eyes"},
-    {"17 SEVENTEEN", "USB"}
+  char songs[9][4][100 * sizeof(char)] = {
+    {"The Beatles", "I Will", "white album", "pop"},
+    {"The Beatles", "Julia", "white album", "pop"},
+    {"Dire Straits", "Sultans of Swing", "dire straits", "pop"},
+    {"Steely Dan", "Dirty Work", "dan", "pop"},
+    {"Paul Mccartney", "Don't Let It Bring You Down", "mc", "pop"},
+    {"The Pierces", "You'll Be Mine", "music", "pop"},
+    {"zxcursed", "never enough", "russian", "rap"},
+    {"The Who", "Behind Blue Eyes", "music", "pop"},
+    {"17 SEVENTEEN", "USB", "russian", "hyperpop"}
   };
   for (int i = 0; i<9; i++) {
-    song_list = insert_alphabetical(song_list, songs[i][0], songs[i][1]);
+    song_list = insert_alphabetical(song_list, songs[i][0], songs[i][1], songs[i][2], songs[i][3], 2);
     add(library, songs[i][0], songs[i][1]);
   }
   printf("LINKED LIST TESTS\n====================================\n\nTesting print_list:\n\t");
-  print_list(song_list);
+  print_song_list(song_list);
   printf("====================================\n\nTesting print_node:\n\t");
   print_node(song_list);
   printf("\n====================================\n\nTesting find_node:\nlooking for [The Beatles: Julia]\n\t");
