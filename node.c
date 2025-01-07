@@ -105,7 +105,7 @@ struct song_node * find_artist(struct song_node * list, char * artist) {
   while (list!=NULL){
     if (strcmp(list->artist, artist) == 0) {
       printf("artist found! ");
-      print_list(list);
+      print_song_list(list);
       return list;
     }
     list = list->next;

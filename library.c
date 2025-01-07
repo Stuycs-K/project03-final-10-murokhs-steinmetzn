@@ -40,7 +40,7 @@ void print_letter(struct song_node ** library, char letter){
   else {
     printf("%d: ", 0);
   }
-  print_list(library[letter]);
+  print_song_list(library[letter]);
 }
 
 void print_artist(struct song_node ** library, char* artist){
@@ -118,6 +118,6 @@ void shuffle (struct song_node ** library, int n) {
     }
     n-=1;
   }
-  print_list(list);
+  print_song_list(list);
   free_list(list);
 }

@@ -23,7 +23,7 @@ int main(){
     add(library, songs[i][0], songs[i][1]);
   }
   printf("LINKED LIST TESTS\n====================================\n\nTesting print_list:\n\t");
-  print_list(song_list);
+  print_song_list(song_list);
   printf("====================================\n\nTesting print_node:\n\t");
   print_node(song_list);
   printf("\n====================================\n\nTesting find_node:\nlooking for [The Beatles: Julia]\n\t");
