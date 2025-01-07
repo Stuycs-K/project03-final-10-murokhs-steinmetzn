@@ -1,4 +1,3 @@
-//Sasha's node.c
 #include "node.h"
 #include <string.h>
 #include <stdio.h>

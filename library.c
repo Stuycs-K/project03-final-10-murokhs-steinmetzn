@@ -1,4 +1,3 @@
-//Sasha's library.c
 #include "library.h"
 #include "node.h"
 #include <string.h>
