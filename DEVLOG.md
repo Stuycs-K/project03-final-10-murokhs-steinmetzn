@@ -33,3 +33,8 @@ full class period
 
 ### 2024-01-06 - Main File
 - Created main file
+
+### 2024-01-07 - Modifications to Old Project
+- Fixed function calls to print_song_list
+- Added makefile
+- Tested main from old project
