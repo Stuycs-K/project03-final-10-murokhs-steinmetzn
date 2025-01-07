@@ -26,10 +26,10 @@ char to_index(char letter){ //helper
   return letter;
 }
 
-void add(struct song_node ** library, char* artist, char* title) {
+void add(struct song_node ** library, char* artist, char* title, char* album, char* genre, int year) {
   char a1 = artist[0];
   a1 = to_index(a1);
-  library[a1] = insert_alphabetical(library[a1], artist, title);
+  library[a1] = insert_alphabetical(library[a1], artist, title, album, genre, year);
 }
 
 void print_letter(struct song_node ** library, char letter){
@@ -108,7 +108,7 @@ void shuffle (struct song_node ** library, int n) {
         while(iter2!=NULL){
           random-=1;
           if(random==0){
-            list = insert_front(list, iter2->artist, iter2->title);
+            list = insert_front(list, iter2->artist, iter2->title, iter2->album, iter2->genre, iter2->year);
             break;
             break;
           }

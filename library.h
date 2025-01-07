@@ -3,7 +3,7 @@
 #define LIBRARY_H
 struct song_node ** init();
 char to_index(char letter);
-void add(struct song_node ** library, char* artist, char* title);
+void add(struct song_node ** library, char* artist, char* title, char* album, char* genre, int year);
 struct song_node * search_song(struct song_node ** library, char* artist, char* title );
 struct song_node * search_artist(struct song_node ** library, char* artist );
 void print_letter(struct song_node ** library, char letter);

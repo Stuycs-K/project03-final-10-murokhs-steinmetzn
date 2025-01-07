@@ -20,7 +20,7 @@ int main(){
   };
   for (int i = 0; i<9; i++) {
     song_list = insert_alphabetical(song_list, songs[i][0], songs[i][1], songs[i][2], songs[i][3], 2);
-    add(library, songs[i][0], songs[i][1]);
+    add(library, songs[i][0], songs[i][1], songs[i][2], songs[i][3], 2);
   }
   printf("LINKED LIST TESTS\n====================================\n\nTesting print_list:\n\t");
   print_song_list(song_list);
