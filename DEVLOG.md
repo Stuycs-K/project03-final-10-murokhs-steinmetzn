@@ -16,6 +16,13 @@ full class period
 - Fixed relevant issues as highlighted by Jupiter comments on project
 ~10 mins
 
+### 2024-01-07 - Modifying node and library for our purposes
+- Fixed issues with node and library
+- added new parameters for the struct (genre, album, year) in accordance to mp3 tags
+- learned about mpg123
+- Fixed more issues with node and library -- all project1 functionality works with new struct design
+full class period
+
 ## Naomi Steinmetz
 
 ### 2024-01-06 - Proposal/Discussion/README
