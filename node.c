@@ -19,7 +19,7 @@ void print_song_list(struct song_node * list){
     int i=0;
     printf("[ ");
     while(list!=NULL){
-      printf("{%s, %s}", list->artist, list->title);
+      printf("{%s, %s, %s, %s, %d}", list->artist, list->title, list->album, list->genre, list->year);
       list = list->next;
       i++;
       if (list!=NULL){

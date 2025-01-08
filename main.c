@@ -75,23 +75,30 @@ int main(){
         sscanf(line, " %s ", &line);*/
 
         struct song_node* song_list = NULL;
+        //create file for playlist, autosave
     }
     else if (choice == 'E' || choice == 'e'){
         printf("Select your playlist: \n");
         //list out playlists
-
+        //user choice
+        //load playlist from file
         printf("(R)emove or (A)dd song?\n");
         fgets(options, sizeof(options), stdin); 
         sscanf(options, " %c ", &choice);
+        //write playlist to file, overwrite ??
     }
     else if (choice == 'V' || choice == 'v'){
         printf("Select your playlist: \n");
         //list out playlists
+        //user choice
+        //load playlist from file
         //print_song_list(playlist);
     }
     else if (choice == 'P' || choice == 'p'){
         printf("Select your playlist: \n");
         //list out playlists
+        //user choice
+        //load playlist from file
         //simulate playing...
     }
     else{
@@ -101,6 +108,6 @@ int main(){
 
 
     
-    //question: should they be able to access and edit the queue? 
+    //question: should they be able to access and edit the queue? if time permits yes
     return 0;
 }
