@@ -55,7 +55,7 @@ void test_run(){
 }
 
 int main(){
-    //test_run();
+    test_run();
     char options[10];
     char line[256];
     char choice;
@@ -83,7 +83,7 @@ int main(){
         //user choice
         //load playlist from file
         printf("(R)emove or (A)dd song?\n");
-        fgets(options, sizeof(options), stdin); 
+        fgets(options, sizeof(options), stdin);
         sscanf(options, " %c ", &choice);
         //write playlist to file, overwrite ??
     }
@@ -107,7 +107,7 @@ int main(){
 
 
 
-    
+
     //question: should they be able to access and edit the queue? if time permits yes
     return 0;
 }

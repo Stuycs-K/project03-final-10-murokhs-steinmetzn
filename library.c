@@ -33,13 +33,6 @@ void add(struct song_node ** library, char* artist, char* title, char* album, ch
 }
 
 void print_letter(struct song_node ** library, char letter){
-  letter = to_index(letter);
-  if(letter!= 26) {
-    printf("%c: ", (char)(letter + 97));
-  }
-  else {
-    printf("%d: ", 0);
-  }
   print_song_list(library[letter]);
 }
 
