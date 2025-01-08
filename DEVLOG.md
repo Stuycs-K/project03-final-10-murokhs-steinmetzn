@@ -34,14 +34,18 @@ full class period
 - Worked on proposal.md
 - Created library files
 - Discussed which lab we were using for intial code
+full class period
 
 ### 2024-01-06 - Main File
 - Created main file
+~ 1 min
 
 ### 2024-01-07 - Modifications to Old Project
 - Fixed function calls to print_song_list
 - Added makefile
 - Tested main from old project
+full class period
 
 ### 2024-01-07 - Modifications to Old Project
 - Wrote some pseudo-code for rough draft of user interface
+~ 20 min
