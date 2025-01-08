@@ -4,5 +4,6 @@
 //print all playlists
 //print contents of a single playlist
 //write the playlist to a file
+//create a playlist
 
 #endif
