@@ -1,4 +1,5 @@
 #include "library.h"
+#include "playlist.h"
 #include "node.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -66,14 +67,15 @@ int main(){
     printf("(V)iew playlist\n"); //will have to select playlist
     printf("(P)lay playlist\n"); //will have to select playlist, then decide which song to play, or if this will be shuffle play, etc.
 
+/*
     fgets(options, sizeof(options), stdin); //take in first selection
     sscanf(options, " %c ", &choice);
 
     if (choice == 'C' || choice == 'c'){
-        /*printf("Name your playlist: "); //might have to create struct???
+        /&printf("Name your playlist: "); //might have to create struct???
         fgets(line, sizeof(line), stdin); //take in playlist name
         sscanf(line, " %s ", &line);*/
-
+/*
         struct song_node* song_list = NULL;
         //create file for playlist, autosave
     }
@@ -83,7 +85,7 @@ int main(){
         //user choice
         //load playlist from file
         printf("(R)emove or (A)dd song?\n");
-        fgets(options, sizeof(options), stdin); 
+        fgets(options, sizeof(options), stdin);
         sscanf(options, " %c ", &choice);
         //write playlist to file, overwrite ??
     }
@@ -104,10 +106,11 @@ int main(){
     else{
         printf("Please re-enter.\n");
     }
+*/
+
+  create_playlist();
 
 
-
-    
     //question: should they be able to access and edit the queue? if time permits yes
     return 0;
 }
