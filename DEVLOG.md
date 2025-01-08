@@ -38,3 +38,6 @@ full class period
 - Fixed function calls to print_song_list
 - Added makefile
 - Tested main from old project
+
+### 2024-01-07 - Modifications to Old Project
+- Wrote some pseudo-code for rough draft of user interface

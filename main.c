@@ -56,7 +56,8 @@ void test_run(){
 
 int main(){
     //test_run();
-    char line[10];
+    char options[10];
+    char line[256];
     char choice;
     printf("Hello! Starting up Knockoff Sony Walkman!...\n\n");
     printf("MENU: \n");
@@ -65,9 +66,41 @@ int main(){
     printf("(V)iew playlist\n"); //will have to select playlist
     printf("(P)lay playlist\n"); //will have to select playlist, then decide which song to play, or if this will be shuffle play, etc.
 
-    fgets(line, sizeof(line), stdin); //take in first selection
-    sscanf(line, " %c ", &choice);
+    fgets(options, sizeof(options), stdin); //take in first selection
+    sscanf(options, " %c ", &choice);
 
+    if (choice == 'C' || choice == 'c'){
+        /*printf("Name your playlist: "); //might have to create struct???
+        fgets(line, sizeof(line), stdin); //take in playlist name
+        sscanf(line, " %s ", &line);*/
+
+        struct song_node* song_list = NULL;
+    }
+    else if (choice == 'E' || choice == 'e'){
+        printf("Select your playlist: \n");
+        //list out playlists
+
+        printf("(R)emove or (A)dd song?\n");
+        fgets(options, sizeof(options), stdin); 
+        sscanf(options, " %c ", &choice);
+    }
+    else if (choice == 'V' || choice == 'v'){
+        printf("Select your playlist: \n");
+        //list out playlists
+        //print_song_list(playlist);
+    }
+    else if (choice == 'P' || choice == 'p'){
+        printf("Select your playlist: \n");
+        //list out playlists
+        //simulate playing...
+    }
+    else{
+        printf("Please re-enter.\n");
+    }
+
+
+
+    
     //question: should they be able to access and edit the queue? 
     return 0;
 }
