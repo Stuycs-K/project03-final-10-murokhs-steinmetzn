@@ -1,3 +1,4 @@
+#include "playlist.h"
 #include "library.h"
 #include "node.h"
 #include <stdio.h>
@@ -89,7 +90,7 @@ int main(){
     }
     else if (choice == 'V' || choice == 'v'){
         printf("Select your playlist: \n");
-        //list out playlists
+        list_playlists();
         //user choice
         //load playlist from file
         //print_song_list(playlist);
