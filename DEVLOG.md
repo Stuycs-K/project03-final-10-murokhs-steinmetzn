@@ -27,6 +27,12 @@ full class period
 - Fixed issue related to new struct parameters
 ~5 mins
 
+### 2024-01-08 - playlist stuff
+- deep brainstorming session, we have plan for the rest of the files and how we will keep building
+- fixed print_song_list to be pretty
+- list_playlists();
+full class period
+
 ## Naomi Steinmetz
 
 ### 2024-01-06 - Proposal/Discussion/README
@@ -49,3 +55,9 @@ full class period
 ### 2024-01-07 - Modifications to Old Project
 - Wrote some pseudo-code for rough draft of user interface
 ~ 20 min
+
+### 2024-01-08 - playlist stuff
+- deep brainstorming session, we have plan for the rest of the files and how we will keep building
+- made playlist files
+- create_playlist();
+full class period
