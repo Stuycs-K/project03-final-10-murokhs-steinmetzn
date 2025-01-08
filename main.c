@@ -4,7 +4,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-int main(){
+
+void test_run(){
   struct song_node* song_list = NULL;
   struct song_node ** library = init();
   char songs[9][4][100 * sizeof(char)] = {
@@ -51,4 +52,22 @@ int main(){
   printf("====================================\n\nPrinting Library...\n");
   print_library(library);
   reset(library);
+}
+
+int main(){
+    //test_run();
+    char line[10];
+    char choice;
+    printf("Hello! Starting up Knockoff Sony Walkman!...\n\n");
+    printf("MENU: \n");
+    printf("(C)reate playlist\n"); //will be pretty straightforward, just create a song_list
+    printf("(E)dit playlist\n"); //will have to select playlist, then select whether removing or adding
+    printf("(V)iew playlist\n"); //will have to select playlist
+    printf("(P)lay playlist\n"); //will have to select playlist, then decide which song to play, or if this will be shuffle play, etc.
+
+    fgets(line, sizeof(line), stdin); //take in first selection
+    sscanf(line, " %c ", &choice);
+
+    //question: should they be able to access and edit the queue? 
+    return 0;
 }
