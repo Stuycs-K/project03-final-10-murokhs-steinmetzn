@@ -16,17 +16,12 @@ struct song_node * insert_front(struct song_node * list, char* artist, char* tit
 }
 void print_song_list(struct song_node * list){
   if(list!=NULL){
-    int i=0;
-    printf("[ ");
+    int i=1;
     while(list!=NULL){
-      printf("{%s, %s, %s, %s, %d}", list->artist, list->title, list->album, list->genre, list->year);
+      printf("%d. {%s, %s, %s, %s, %d}\n", i, list->artist, list->title, list->album, list->genre, list->year);
       list = list->next;
       i++;
-      if (list!=NULL){
-        printf(" | ");
-      }
     }
-    printf(" ]\n");
   }
 }
 
