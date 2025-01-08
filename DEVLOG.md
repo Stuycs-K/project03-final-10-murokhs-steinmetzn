@@ -23,6 +23,10 @@ full class period
 - Fixed more issues with node and library -- all project1 functionality works with new struct design
 full class period
 
+### 2024-01-07 - Minor fix
+- Fixed issue related to new struct parameters
+~5 mins
+
 ## Naomi Steinmetz
 
 ### 2024-01-06 - Proposal/Discussion/README
