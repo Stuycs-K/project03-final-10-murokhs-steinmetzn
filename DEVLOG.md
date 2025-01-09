@@ -66,6 +66,11 @@ full class period
 - create_playlist();
 full class period
 
-### 2024-01-08 - playlist stuff
+### 2024-01-08 - create_playlist
 - finished create_playlist
 15 min
+
+### 2024-01-09 - while loop
+- put while loop in main
+- started writing view choice
+full class period
