@@ -57,7 +57,7 @@ void test_run(){
 }
 
 int main(){
-    test_run();
+    //test_run();
     char options[10];
     char line[256];
     char choice;
@@ -68,14 +68,18 @@ int main(){
     printf("(V)iew playlist\n"); //will have to select playlist
     printf("(P)lay playlist\n"); //will have to select playlist, then decide which song to play, or if this will be shuffle play, etc.
 
-/*
+
     fgets(options, sizeof(options), stdin); //take in first selection
     sscanf(options, " %c ", &choice);
 
     if (choice == 'C' || choice == 'c'){
-        /&printf("Name your playlist: "); //might have to create struct???
+        printf("Name your playlist: "); //might have to create struct???
         fgets(line, sizeof(line), stdin); //take in playlist name
-        sscanf(line, " %s ", &line);*/
+        //sscanf(line, " %s ", &line);
+        line[strlen(line)-1] = 0;
+        strcat(line, ".dat");
+        create_playlist(line);
+    }
 /*
         struct song_node* song_list = NULL;
         //create file for playlist, autosave
@@ -109,7 +113,6 @@ int main(){
     }
 */
 
-  create_playlist();
 
 
 
