@@ -112,6 +112,9 @@ int main(){
         printf("Select your playlist: \n");
         list_playlists();
         //user choice
+        fgets(line, sizeof(line), stdin); //take in playlist name
+        //sscanf(line, " %s ", &line);
+        line[strlen(line)-1] = 0;
         //load playlist from file
         //print_song_list(playlist);
     }
