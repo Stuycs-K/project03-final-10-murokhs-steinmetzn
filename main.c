@@ -58,34 +58,46 @@ void test_run(){
 
 int main(){
     //test_run();
-    //test_run();
     char options[10];
     char line[256];
     char choice;
+    struct song_node* curr_list = NULL;
     printf("Hello! Starting up Knockoff Sony Walkman!...\n\n");
-    printf("MENU: \n");
-    printf("(C)reate playlist\n"); //will be pretty straightforward, just create a song_list
-    printf("(E)dit playlist\n"); //will have to select playlist, then select whether removing or adding
-    printf("(V)iew playlist\n"); //will have to select playlist
-    printf("(P)lay playlist\n"); //will have to select playlist, then decide which song to play, or if this will be shuffle play, etc.
 
+    while (1){
+      printf("MENU: \n");
+      printf("(C)reate playlist\n"); //will be pretty straightforward, just create a song_list
+      printf("(E)dit playlist\n"); //will have to select playlist, then select whether removing or adding
+      printf("(V)iew playlist\n"); //will have to select playlist
+      printf("(P)lay playlist\n"); //will have to select playlist, then decide which song to play, or if this will be shuffle play, etc.
+      printf("(L)eave\n");
 
-    fgets(options, sizeof(options), stdin); //take in first selection
-    sscanf(options, " %c ", &choice);
+      fgets(options, sizeof(options), stdin); //take in first selection
+      sscanf(options, " %c ", &choice);
 
-    if (choice == 'C' || choice == 'c'){
-      //create file for playlist, autosave
-      
-      printf("Name your playlist: "); //might have to create struct???
-      fgets(line, sizeof(line), stdin); //take in playlist name
-      //sscanf(line, " %s ", &line);
-      line[strlen(line)-1] = 0;
-      strcat(line, ".dat");
-      create_playlist(line);
+      if (choice == 'C' || choice == 'c'){
+        //create file for playlist, autosave
+        //CURRENT ISSUES: playlist name must be entered with no spaces before or after
+
+        printf("Name your playlist: "); //might have to create struct???
+        fgets(line, sizeof(line), stdin); //take in playlist name
+        //sscanf(line, " %s ", &line);
+        line[strlen(line)-1] = 0;
+        strcat(line, ".dat");
+        create_playlist(line);
+        curr_list = insert_alphabetical(curr_list, "Paul Mccartney", "Don't Let It Bring You Down", "mc", "pop", 1992);
+      }
+      else if (choice == 'L' || choice == 'l'){
+        break;
+      }
+      else{
+        curr_list = insert_front(curr_list, "The Beatles", "I Will", "white album", "pop", 1990);
+      }
+      print_song_list(curr_list);
+      printf("playlist printing?\n");
     }
+    printf("exiting...\n");
 /*
-        struct song_node* song_list = NULL;
-    }
     else if (choice == 'E' || choice == 'e'){
         printf("Select your playlist: \n");
         //list out playlists
