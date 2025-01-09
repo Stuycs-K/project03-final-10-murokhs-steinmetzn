@@ -61,3 +61,7 @@ full class period
 - made playlist files
 - create_playlist();
 full class period
+
+### 2024-01-08 - playlist stuff
+- finished create_playlist
+15 min

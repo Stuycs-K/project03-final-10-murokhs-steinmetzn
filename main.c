@@ -73,16 +73,17 @@ int main(){
     sscanf(options, " %c ", &choice);
 
     if (choice == 'C' || choice == 'c'){
-        printf("Name your playlist: "); //might have to create struct???
-        fgets(line, sizeof(line), stdin); //take in playlist name
-        //sscanf(line, " %s ", &line);
-        line[strlen(line)-1] = 0;
-        strcat(line, ".dat");
-        create_playlist(line);
+      //create file for playlist, autosave
+      
+      printf("Name your playlist: "); //might have to create struct???
+      fgets(line, sizeof(line), stdin); //take in playlist name
+      //sscanf(line, " %s ", &line);
+      line[strlen(line)-1] = 0;
+      strcat(line, ".dat");
+      create_playlist(line);
     }
 /*
         struct song_node* song_list = NULL;
-        //create file for playlist, autosave
     }
     else if (choice == 'E' || choice == 'e'){
         printf("Select your playlist: \n");
