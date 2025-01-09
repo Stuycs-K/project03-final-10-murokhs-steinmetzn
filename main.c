@@ -57,7 +57,7 @@ void test_run(){
 }
 
 int main(){
-    test_run();
+    //test_run();
     char options[10];
     char line[256];
     char choice;
@@ -108,8 +108,8 @@ int main(){
         printf("Please re-enter.\n");
     }
 */
-
-  create_playlist();
+  create_playlist("test");
+  list_playlists();
 
 
 
