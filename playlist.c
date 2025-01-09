@@ -10,6 +10,20 @@
 #include <time.h>
 #include <errno.h>
 
+void list_playlists(){
+  DIR * d;
+  d = opendir("playlists/");
+  struct dirent *entry;
+  int i = 1;
+  while(entry = readdir( d )){
+    if (strcmp(entry->d_name,".")!=0&&strcmp(entry->d_name,"..")!=0){
+        printf("%d. %s\n", i, entry->d_name);
+        i++;
+      }
+  }
+  closedir(d);
+}
+
 int err(){
   printf("errno %d\n",errno);
   printf("%s\n",strerror(errno));
