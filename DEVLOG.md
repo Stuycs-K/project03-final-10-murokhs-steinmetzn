@@ -37,6 +37,10 @@ full class period
 - finished list_playlist()
 ~10 mins
 
+### 2024-01-09 - write to playlist
+- write to playlist (works)
+full class period
+
 ## Naomi Steinmetz
 
 ### 2024-01-06 - Proposal/Discussion/README
