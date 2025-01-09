@@ -5,6 +5,7 @@ void list_playlists();
 //print contents of a single playlist
 //write the playlist to a file
 //create a playlist
-void create_playlist(char* name);
+void create_playlist(char * name);
+int err();
 
 #endif
