@@ -30,7 +30,7 @@ int err(){
   exit(1);
 }
 
-void create_playlist(char * name){
+void create_playlist(char * name){ //feed in name including .dat
   char * path = "./playlists";
   // DIR * curr = opendir(path);
   // struct dirent * entry;
@@ -41,4 +41,20 @@ void create_playlist(char * name){
     err();
   }
   printf("%s successfully created. Currently empty.\n", name);
+}
+
+void write_to_playlist(char * name, struct song_node* song_list){ //feed in name including .dat
+  char * path = "./playlists";
+  chdir(path);
+  int playlist = open(name, O_WRONLY | O_TRUNC, 0644);
+  if(playlist==-1){
+    err();
+  }
+  struct song_node * beginning = song_list;
+  while(song_list!=NULL){
+    write(playlist, song_list, sizeof(struct song_node));
+    song_list = song_list->next;
+  }
+  free_list(beginning);
+  printf("succesfully wrote to %s, cleared active songlist", name);
 }
