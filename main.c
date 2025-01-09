@@ -114,8 +114,6 @@ int main(){
         printf("Please re-enter.\n");
     }
 */
-  create_playlist("test");
-  list_playlists();
 
 
 

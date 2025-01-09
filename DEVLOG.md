@@ -33,6 +33,10 @@ full class period
 - list_playlists();
 full class period
 
+### 2024-01-08 - playlist stuff
+- finished list_playlist()
+~10 mins
+
 ## Naomi Steinmetz
 
 ### 2024-01-06 - Proposal/Discussion/README
