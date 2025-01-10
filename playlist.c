@@ -16,7 +16,7 @@ int err(){
   exit(1);
 }
 
-int randomTen(){ //bw 3 and 13
+int randomTwo(){ //bw 3 and 5
   int x;
   int bytes;
   int r_file = open("/dev/random", O_RDONLY, 0);
@@ -25,7 +25,7 @@ int randomTen(){ //bw 3 and 13
   if (bytes == -1){
       err();
   }
-  x = abs(x) % 10;
+  x = abs(x) % 2;
   x += 3;
   return x;
 }
@@ -85,8 +85,13 @@ void play_playlist(char * filename){
   bytes = read(r_file, &curr,sizeof(struct song_node));
   while (bytes){
     printf("Playing %s by %s, from album %s\n", curr.title, curr.artist, curr.album);
-    int time = randomTen();
+    int time = randomTwo();
     for (int i = 0; i < time; i++){
+      printf("     ; \n     ;;\n     ;';.\n     ;  ;;\n     ;   ;;\n     ;    ;;\n     ;    ;;\n     ;   ;'\n     ;  ' \n,;;;,; \n;;;;;;\n`;;;;'\n");
+      printf(".\n");
+      printf(".\n");
+      printf(".\n");
+      printf(".\n");
       printf(".\n");
       sleep(1);
     }
