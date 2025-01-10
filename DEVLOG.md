@@ -92,6 +92,6 @@ full class period
 - wrote play_playlist
 20 min
 
-### 2024-01-10 - simulate playing songs
+### 2024-01-10 - test playing songs
 - modifications including ascii art and minor edits
 full class period
