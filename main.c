@@ -121,6 +121,9 @@ int main(){
         //write
         write_to_playlist(line, curr_list);
 
+        //playing
+        play_playlist(line);
+
       }
       else if (choice == 'L' || choice == 'l'){
         break;
