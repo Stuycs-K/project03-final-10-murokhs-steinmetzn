@@ -10,6 +10,12 @@
 #include <time.h>
 #include <errno.h>
 
+int err(){
+  printf("errno %d\n",errno);
+  printf("%s\n",strerror(errno));
+  exit(1);
+}
+
 int randomTen(){ //bw 3 and 13
   int x;
   int bytes;
@@ -38,12 +44,6 @@ void list_playlists(){
   closedir(d);
 }
 
-int err(){
-  printf("errno %d\n",errno);
-  printf("%s\n",strerror(errno));
-  exit(1);
-}
-
 void create_playlist(char * name){ //feed in name including .dat
   char * path = "./playlists";
   chdir(path);
@@ -52,6 +52,7 @@ void create_playlist(char * name){ //feed in name including .dat
     err();
   }
   printf("%s successfully created. Currently empty.\n", name);
+  chdir("..");
 }
 
 void write_to_playlist(char * name, struct song_node* song_list){ //feed in name including .dat
@@ -68,7 +69,8 @@ void write_to_playlist(char * name, struct song_node* song_list){ //feed in name
   }
   free_list(beginning);
   close(playlist);
-  printf("succesfully wrote to %s, cleared active songlist", name);
+  printf("succesfully wrote to %s, cleared active songlist\n", name);
+  chdir("..");
 }
 
 void play_playlist(char * filename){
@@ -92,7 +94,9 @@ void play_playlist(char * filename){
     }
     bytes = read(r_file, &curr,sizeof(song_node));
   }
+  chdir("..");
 }
+
 
 struct song_node* read_from_playlist(char * name){
   char * path = "./playlists";
@@ -101,8 +105,8 @@ struct song_node* read_from_playlist(char * name){
   if(playlist==-1){
     err();
   }
-  struct song_node*song_list = NULL;
   struct song_node*temp = (struct song_node*) malloc(sizeof(struct song_node));
+  struct song_node*song_list = temp;
   while(read(playlist, temp,sizeof(struct song_node))){
     ///hfjdhjsfdjkfsfd
   }

@@ -63,7 +63,7 @@ int main(){
     char choice;
     struct song_node* curr_list = NULL;
     printf("Hello! Starting up Knockoff Sony Walkman!...\n\n");
-
+    /*
     while (1){
       printf("MENU: \n");
       printf("(C)reate playlist\n"); //will be pretty straightforward, just create a song_list
@@ -105,6 +105,7 @@ int main(){
       printf("playlist printing?\n");
     }
     printf("exiting...\n");
+    */
 /*
     else if (choice == 'E' || choice == 'e'){
         printf("Select your playlist: \n");
@@ -128,8 +129,24 @@ int main(){
     }*/
 
 
-
-
+    create_playlist("cat.dat");
+    list_playlists();
+    struct song_node* song_list = NULL;
+    char songs[9][4][100 * sizeof(char)] = {
+      {"The Beatles", "I Will", "white album", "pop"},
+      {"The Beatles", "Julia", "white album", "pop"},
+      {"Dire Straits", "Sultans of Swing", "dire straits", "pop"},
+      {"Steely Dan", "Dirty Work", "dan", "pop"},
+      {"Paul Mccartney", "Don't Let It Bring You Down", "mc", "pop"},
+      {"The Pierces", "You'll Be Mine", "music", "pop"},
+      {"zxcursed", "never enough", "russian", "rap"},
+      {"The Who", "Behind Blue Eyes", "music", "pop"},
+      {"17 SEVENTEEN", "USB", "russian", "hyperpop"}
+    };
+    for (int i = 0; i<9; i++) {
+      song_list = insert_alphabetical(song_list, songs[i][0], songs[i][1], songs[i][2], songs[i][3], 2);
+    }
+    write_to_playlist("cat.dat", song_list);
 
     //question: should they be able to access and edit the queue? if time permits yes
     return 0;
