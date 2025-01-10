@@ -41,6 +41,11 @@ full class period
 - write to playlist (works)
 full class period
 
+### 2024-01-09 - mp3s + read from playlist
+- mp3 files :3
+- read from playlist (in progress)
+~20 mins
+
 ## Naomi Steinmetz
 
 ### 2024-01-06 - Proposal/Discussion/README
