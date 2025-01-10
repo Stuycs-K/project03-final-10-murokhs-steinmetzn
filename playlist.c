@@ -67,6 +67,7 @@ void write_to_playlist(char * name, struct song_node* song_list){ //feed in name
     song_list = song_list->next;
   }
   free_list(beginning);
+  close(playlist);
   printf("succesfully wrote to %s, cleared active songlist", name);
 }
 
@@ -90,5 +91,19 @@ void play_playlist(char * filename){
       sleep(1);
     }
     bytes = read(r_file, &curr,sizeof(song_node));
+  }
+}
+
+struct song_node* read_from_playlist(char * name){
+  char * path = "./playlists";
+  chdir(path);
+  int playlist = open(name, O_RDONLY);
+  if(playlist==-1){
+    err();
+  }
+  struct song_node*song_list = NULL;
+  struct song_node*temp = (struct song_node*) malloc(sizeof(struct song_node));
+  while(read(playlist, temp,sizeof(struct song_node))){
+    ///hfjdhjsfdjkfsfd
   }
 }

@@ -6,4 +6,5 @@ void create_playlist(char * name);
 int err();
 void write_to_playlist(char * name, struct song_node* song_list);
 void play_playlist(char * filename);
+struct song_node* read_from_playlist(char * name);
 #endif
