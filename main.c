@@ -69,6 +69,7 @@ int main(){
       printf("(E)dit playlist\n"); //will have to select playlist, then select whether removing or adding
       printf("(V)iew playlist\n"); //will have to select playlist
       printf("(P)lay playlist\n"); //will have to select playlist, then decide which song to play, or if this will be shuffle play, etc.
+      printf("(T)esting\n"); //temporary
       printf("(L)eave\n");
 
       fgets(options, sizeof(options), stdin); //take in first selection
