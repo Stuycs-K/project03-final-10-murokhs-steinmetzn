@@ -84,7 +84,7 @@ void play_playlist(char * filename){
   struct song_node curr;
   char buffer[256];
   int bytes;
-  bytes = read(r_file, &curr,sizeof(song_node));
+  bytes = read(r_file, &curr,sizeof(struct song_node));
   while (bytes){
     printf("Playing %s by %s, from album %s\n", curr.title, curr.artist, curr.album);
     int time = randomTen();
@@ -92,7 +92,7 @@ void play_playlist(char * filename){
       printf(".\n");
       sleep(1);
     }
-    bytes = read(r_file, &curr,sizeof(song_node));
+    bytes = read(r_file, &curr,sizeof(struct song_node));
   }
   chdir("..");
 }
