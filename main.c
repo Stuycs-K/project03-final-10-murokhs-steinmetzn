@@ -88,10 +88,39 @@ int main(){
       }
       else if (choice == 'P' || choice == 'p'){
         printf("Select your playlist: \n");
-        list_playlists(); //gave a seg fault
+        //list_playlists(); //gave a seg fault
         //user choice
         //load playlist from file
         //simulate playing...
+      }
+      else if (choice == 'T' || choice == 't'){ //testing
+
+        //create
+        printf("Name your playlist: ");
+        fgets(line, sizeof(line), stdin);
+        line[strlen(line)-1] = 0;
+        strcat(line, ".dat");
+        create_playlist(line);
+
+        //get a song list
+        char songs[9][4][100 * sizeof(char)] = {
+          {"The Beatles", "I Will", "white album", "pop"},
+          {"The Beatles", "Julia", "white album", "pop"},
+          {"Dire Straits", "Sultans of Swing", "dire straits", "pop"},
+          {"Steely Dan", "Dirty Work", "dan", "pop"},
+          {"Paul Mccartney", "Don't Let It Bring You Down", "mc", "pop"},
+          {"The Pierces", "You'll Be Mine", "music", "pop"},
+          {"zxcursed", "never enough", "russian", "rap"},
+          {"The Who", "Behind Blue Eyes", "music", "pop"},
+          {"17 SEVENTEEN", "USB", "russian", "hyperpop"}
+        };
+        for (int i = 0; i<9; i++) {
+          curr_list = insert_alphabetical(curr_list, songs[i][0], songs[i][1], songs[i][2], songs[i][3], 2);
+        }
+
+        //write
+        write_to_playlist(line, curr_list);
+
       }
       else if (choice == 'L' || choice == 'l'){
         break;
@@ -99,8 +128,6 @@ int main(){
       else{
         printf("Please re-enter.\n");
       }
-      print_song_list(curr_list);
-      printf("playlist printing?\n");
     }
     printf("exiting...\n");
 /*

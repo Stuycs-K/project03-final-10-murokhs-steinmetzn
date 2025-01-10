@@ -68,7 +68,7 @@ void write_to_playlist(char * name, struct song_node* song_list){ //feed in name
   }
   free_list(beginning);
   close(playlist);
-  printf("succesfully wrote to %s, cleared active songlist", name);
+  printf("succesfully wrote to %s, cleared active songlist\n", name);
 }
 
 void play_playlist(char * filename){
