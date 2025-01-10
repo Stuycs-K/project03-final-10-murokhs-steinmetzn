@@ -10,6 +10,20 @@
 #include <time.h>
 #include <errno.h>
 
+int randomTen(){ //bw 3 and 13
+  int x;
+  int bytes;
+  int r_file = open("/dev/random", O_RDONLY, 0);
+  if (r_file == -1)err();
+  bytes = read(r_file, &x, 4);
+  if (bytes == -1){
+      err();
+  }
+  x = abs(x) % 10;
+  x += 3;
+  return x;
+}
+
 void list_playlists(){
   DIR * d;
   d = opendir("playlists/");
@@ -32,9 +46,6 @@ int err(){
 
 void create_playlist(char * name){ //feed in name including .dat
   char * path = "./playlists";
-  // DIR * curr = opendir(path);
-  // struct dirent * entry;
-  // entry = readdir(curr);
   chdir(path);
   int w_file = open(name, O_RDWR | O_CREAT | O_TRUNC, 0644);
   if(w_file==-1){
@@ -57,4 +68,27 @@ void write_to_playlist(char * name, struct song_node* song_list){ //feed in name
   }
   free_list(beginning);
   printf("succesfully wrote to %s, cleared active songlist", name);
+}
+
+void play_playlist(char * filename){
+  char * path = "./playlists";
+  chdir(path);
+  int r_file = open(filename, O_RDONLY, 0644);
+  if (r_file == -1){
+    err();
+  }
+  struct song_node * songs = NULL;
+  struct song_node curr;
+  char buffer[256];
+  int bytes;
+  bytes = read(r_file, &curr,sizeof(song_node));
+  while (bytes){
+    printf("Playing %s by %s, from album %s\n", curr.title, curr.artist, curr.album);
+    int time = randomTen();
+    for (int i = 0; i < time; i++){
+      printf(".\n");
+      sleep(1);
+    }
+    bytes = read(r_file, &curr,sizeof(song_node));
+  }
 }

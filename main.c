@@ -87,10 +87,18 @@ int main(){
         create_playlist(line);
         curr_list = insert_alphabetical(curr_list, "Paul Mccartney", "Don't Let It Bring You Down", "mc", "pop", 1992);
       }
+      else if (choice == 'P' || choice == 'p'){
+        printf("Select your playlist: \n");
+        list_playlists(); //gave a seg fault
+        //user choice
+        //load playlist from file
+        //simulate playing...
+      }
       else if (choice == 'L' || choice == 'l'){
         break;
       }
       else{
+        printf("Please re-enter.\n");
         curr_list = insert_front(curr_list, "The Beatles", "I Will", "white album", "pop", 1990);
       }
       print_song_list(curr_list);
@@ -117,18 +125,8 @@ int main(){
         line[strlen(line)-1] = 0;
         //load playlist from file
         //print_song_list(playlist);
-    }
-    else if (choice == 'P' || choice == 'p'){
-        printf("Select your playlist: \n");
-        //list out playlists
-        //user choice
-        //load playlist from file
-        //simulate playing...
-    }
-    else{
-        printf("Please re-enter.\n");
-    }
-*/
+    }*/
+
 
 
 

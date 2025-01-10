@@ -78,3 +78,7 @@ full class period
 - put while loop in main
 - started writing view choice
 full class period
+
+### 2024-01-09 - simulate playing songs
+- wrote play_playlist
+20 min
