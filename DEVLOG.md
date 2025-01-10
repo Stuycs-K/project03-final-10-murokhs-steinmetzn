@@ -46,6 +46,10 @@ full class period
 - read from playlist (in progress)
 ~20 mins
 
+### 2024-01-10 - testing + read from playlist
+- read from playlist (in progress)
+full class period
+
 ## Naomi Steinmetz
 
 ### 2024-01-06 - Proposal/Discussion/README
@@ -87,3 +91,7 @@ full class period
 ### 2024-01-09 - simulate playing songs
 - wrote play_playlist
 20 min
+
+### 2024-01-10 - simulate playing songs
+- modifications including ascii art and minor edits
+full class period
