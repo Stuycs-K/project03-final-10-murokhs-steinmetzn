@@ -136,11 +136,10 @@ void add_song(char * filename){
   strcpy(album, line);
   printf("\nGenre of song: ");
   fgets(line, sizeof(line), stdin);
-  strcpy(genre, line); 
+  strcpy(genre, line);
   printf("\nYear of song: ");
   fgets(line, sizeof(line), stdin);
   sscanf(" %d ", line, &year);
-  insert_alphabetical(curr_list, title, artist, album, genre, year);
-  write_to_playlist(curr_list);
-  strcpy(artist, line);
+  curr_list = insert_alphabetical(curr_list, artist, title, album, genre, year);
+  curr_list = write_to_playlist(curr_list);
 }

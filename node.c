@@ -14,6 +14,24 @@ struct song_node * insert_front(struct song_node * list, char* artist, char* tit
   m->next = list;
   return m;
 }
+
+
+struct song_node * insert_back(struct song_node * list, char* artist, char* title, char* album, char* genre, int year){
+  struct song_node*m = (struct song_node*) malloc(sizeof(struct song_node));
+  strcpy(m->artist, artist);
+  strcpy(m->title, title);
+  strcpy(m->album, album);
+  strcpy(m->genre, genre);
+  m->year = year;
+  m->next = NULL;
+  struct song_node * begin = list;
+  while (list->next!=NULL) { //loop through until n is smaller than list->next, then insert and return begin
+    list = list->next;
+  }
+  list->next = new_song;
+  return begin;
+}
+
 void print_song_list(struct song_node * list){
   if(list!=NULL){
     int i=1;
