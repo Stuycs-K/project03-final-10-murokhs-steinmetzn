@@ -24,11 +24,15 @@ struct song_node * insert_back(struct song_node * list, char* artist, char* titl
   strcpy(m->genre, genre);
   m->year = year;
   m->next = NULL;
+  if (list==NULL){
+    list = m;
+    return list;
+  }
   struct song_node * begin = list;
   while (list->next!=NULL) { //loop through until n is smaller than list->next, then insert and return begin
     list = list->next;
   }
-  list->next = new_song;
+  list->next = m;
   return begin;
 }
 

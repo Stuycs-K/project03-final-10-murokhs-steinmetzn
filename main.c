@@ -116,7 +116,7 @@ int main(){
           {"17 SEVENTEEN", "USB", "russian", "hyperpop"}
         };
         for (int i = 0; i<9; i++) {
-          curr_list = insert_alphabetical(curr_list, songs[i][0], songs[i][1], songs[i][2], songs[i][3], 2);
+          curr_list = insert_back(curr_list, songs[i][0], songs[i][1], songs[i][2], songs[i][3], 2);
         }
 
         //write
