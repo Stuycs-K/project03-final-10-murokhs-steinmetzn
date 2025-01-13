@@ -82,7 +82,6 @@ void play_playlist(char * filename){
   }
   struct song_node * songs = NULL;
   struct song_node curr;
-  char buffer[256];
   int bytes;
   bytes = read(r_file, &curr,sizeof(struct song_node));
   while (bytes){
@@ -112,9 +111,16 @@ struct song_node* read_from_playlist(char * name){
   }
   struct song_node*temp = (struct song_node*) malloc(sizeof(struct song_node));
   struct song_node*song_list = temp;
-  while(read(playlist, temp,sizeof(struct song_node))){
+  struct song_node curr;
+  int bytes;
+  bytes = read(r_file, &curr,sizeof(struct song_node));
+  while(bytes){
     ///hfjdhjsfdjkfsfd
+    temp = insert_back(temp, curr.artist, curr.title, curr.album, curr.genre, curr.year);
+    bytes = read(r_file, &curr,sizeof(struct song_node));
   }
+  chdir("..");
+  return song_list;
 }
 
 void add_song(char * filename){
@@ -142,4 +148,5 @@ void add_song(char * filename){
   sscanf(" %d ", line, &year);
   curr_list = insert_alphabetical(curr_list, artist, title, album, genre, year);
   curr_list = write_to_playlist(filename, curr_list);
+  printf("Added %s by %s, album %s, genre %s, year %d to %s.\n", title, artist, album, genre, year, filename);
 }
