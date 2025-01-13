@@ -2,6 +2,7 @@
 #include "library.h"
 #include "playlist.h"
 #include "node.h"
+#include "mp3.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -119,7 +120,7 @@ int main(){
         }
 
         //write
-        write_to_playlist(line, curr_list);
+        curr_list = write_to_playlist(line, curr_list);
 
         //playing
         play_playlist(line);

@@ -50,6 +50,11 @@ full class period
 - read from playlist (in progress)
 full class period
 
+### 2024-01-12 - fixed warning!! and made files
+- fixed a rlly annoying warning
+- made mp3.c/h files
+~20 mins
+
 ## Naomi Steinmetz
 
 ### 2024-01-06 - Proposal/Discussion/README

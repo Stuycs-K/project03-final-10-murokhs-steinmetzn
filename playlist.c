@@ -55,7 +55,7 @@ void create_playlist(char * name){ //feed in name including .dat
   chdir("..");
 }
 
-void write_to_playlist(char * name, struct song_node* song_list){ //feed in name including .dat
+struct song_node * write_to_playlist(char * name, struct song_node* song_list){ //feed in name including .dat
   char * path = "./playlists";
   chdir(path);
   int playlist = open(name, O_WRONLY | O_TRUNC, 0644);
