@@ -100,3 +100,7 @@ full class period
 ### 2024-01-10 - test playing songs
 - modifications including ascii art and minor edits
 full class period
+
+### 2024-01-13 - add_song
+- wrote first draft of add_song
+15 min
