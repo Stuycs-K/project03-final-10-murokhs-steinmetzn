@@ -103,6 +103,11 @@ void play_playlist(char * filename){
 
 
 struct song_node* read_from_playlist(char * name){
+  int arr_size;
+  int ind_bytes = sizeof(struct song_node);
+  struct stat stat_buffer;
+  stat(name, &stat_buffer);
+  arr_size = stat_buffer.st_size / ind_bytes;
   char * path = "./playlists";
   chdir(path);
   int playlist = open(name, O_RDONLY);
@@ -113,12 +118,11 @@ struct song_node* read_from_playlist(char * name){
   struct song_node*song_list = temp;
   struct song_node curr;
   int bytes;
-  bytes = read(playlist, &curr,sizeof(struct song_node));
-  while(bytes){
-    ///hfjdhjsfdjkfsfd
+  for (int i = 0; i < arr_size; i++){
+    bytes = read(playlist, &curr, sizeof(struct song_node));
     temp = insert_back(temp, curr.artist, curr.title, curr.album, curr.genre, curr.year);
-    bytes = read(playlist, &curr,sizeof(struct song_node));
   }
+  print_song_list(song_list);
   chdir("..");
   return song_list;
 }
