@@ -55,6 +55,11 @@ full class period
 - made mp3.c/h files
 ~20 mins
 
+### 2024-01-13 - mp3 tag library
+- utilizing id3v2lib library to access mp3 tags
+- working on code
+full class period
+
 ## Naomi Steinmetz
 
 ### 2024-01-06 - Proposal/Discussion/README
