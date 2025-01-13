@@ -119,14 +119,16 @@ struct song_node* read_from_playlist(char * name){
 
 void add_song(char * filename){
   char line[256];
-  char title[100];
-  char artist[100];
-  char album[100];
-  char genre[50];
+  char title[256];
+  char artist[256];
+  char album[256];
+  char genre[256];
   int year;
   struct song_node * curr_list = read_from_playlist(filename); //note: read_from_playlist is not finished yet
   printf("Title of song: ");
   fgets(line, sizeof(line), stdin);
+  strcpy(title, line);
   printf("\nArtist of song: ");
   fgets(line, sizeof(line), stdin);
+  strcpy(artist, line);
 }
