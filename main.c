@@ -122,6 +122,8 @@ int main(){
         //write
         curr_list = write_to_playlist(line, curr_list);
 
+        add_song(line);
+
         //playing
         play_playlist(line);
 

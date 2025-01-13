@@ -109,3 +109,9 @@ full class period
 ### 2024-01-13 - add_song
 - wrote first draft of add_song
 15 min
+
+### 2024-01-13 - insert_back
+- wrote and tested insert_back
+- finished read_from_playlist
+- started testing add_song
+full class period

@@ -113,11 +113,11 @@ struct song_node* read_from_playlist(char * name){
   struct song_node*song_list = temp;
   struct song_node curr;
   int bytes;
-  bytes = read(r_file, &curr,sizeof(struct song_node));
+  bytes = read(playlist, &curr,sizeof(struct song_node));
   while(bytes){
     ///hfjdhjsfdjkfsfd
     temp = insert_back(temp, curr.artist, curr.title, curr.album, curr.genre, curr.year);
-    bytes = read(r_file, &curr,sizeof(struct song_node));
+    bytes = read(playlist, &curr,sizeof(struct song_node));
   }
   chdir("..");
   return song_list;
