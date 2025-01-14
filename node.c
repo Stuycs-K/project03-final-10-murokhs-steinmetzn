@@ -26,6 +26,7 @@ struct song_node * insert_back(struct song_node * list, char* artist, char* titl
   m->next = NULL;
   if (list==NULL){
     list = m;
+    print_song_list(list);
     return list;
   }
   struct song_node * begin = list;
@@ -33,6 +34,7 @@ struct song_node * insert_back(struct song_node * list, char* artist, char* titl
     list = list->next;
   }
   list->next = m;
+  print_song_list(list);
   return begin;
 }
 

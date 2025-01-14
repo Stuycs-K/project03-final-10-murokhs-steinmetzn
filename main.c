@@ -120,7 +120,7 @@ int main(){
         }
 
         //write
-        curr_list = write_to_playlist(line, curr_list);
+        curr_list = write_to_playlist(line, curr_list); //good up to here
 
         add_song(line);
 
