@@ -110,7 +110,7 @@ struct song_node* read_from_playlist(char * name){
   struct stat stat_buffer;
   stat(name, &stat_buffer);
   arr_size = stat_buffer.st_size / ind_bytes;
-  printf("arr size: %lld/%d\n", stat_buffer.st_size, ind_bytes);
+  printf("arr size: %ld/%d\n", stat_buffer.st_size, ind_bytes);
   int playlist = open(name, O_RDONLY);
   if(playlist==-1){
     err();
@@ -156,7 +156,7 @@ void add_song(char * filename){
   printf("\nYear of song: ");
   fgets(line, sizeof(line), stdin);
   line[strlen(line)-1] = 0;
-  sscanf("%d", line, &year);
+  year = atoi(line);
   printf("line: %s, year: %d\n", line, year);
 
 
