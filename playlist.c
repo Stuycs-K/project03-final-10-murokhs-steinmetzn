@@ -31,15 +31,18 @@ int randomTwo(){ //bw 3 and 5
 }
 
 void list_playlists(){
+  char curr[256];
   DIR * d;
   d = opendir("playlists/");
   struct dirent *entry;
   int i = 1;
   while(entry = readdir( d )){
     if (strcmp(entry->d_name,".")!=0&&strcmp(entry->d_name,"..")!=0){
-        printf("%d. %s\n", i, entry->d_name);
-        i++;
-      }
+      strcpy(curr, entry->d_name);
+      curr[strlen(curr)-4] = 0;
+      printf("%d. %s\n", i, curr);
+      i++;
+    }
   }
   closedir(d);
 }

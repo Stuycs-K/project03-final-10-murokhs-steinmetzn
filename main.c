@@ -80,7 +80,7 @@ int main(){
         //create file for playlist, autosave
         //CURRENT ISSUES: playlist name must be entered with no spaces before or after
 
-        printf("Name your playlist: "); //might have to create struct???
+        printf("Name your playlist: ");
         fgets(line, sizeof(line), stdin); //take in playlist name
         //sscanf(line, " %s ", &line);
         line[strlen(line)-1] = 0;
@@ -89,10 +89,21 @@ int main(){
       }
       else if (choice == 'P' || choice == 'p'){
         printf("Select your playlist: \n");
-        //list_playlists(); //gave a seg fault
+        list_playlists();
         //user choice
         //load playlist from file
         //simulate playing...
+      }
+      else if (choice == 'V' || choice == 'v'){
+        //suggestion: prompt user at the end, asking if they'd like to play it
+        printf("Playlists: \n"); //should always have a default there
+        list_playlists();
+        printf("Select your playlist: \n");
+        fgets(line, sizeof(line), stdin); 
+        line[strlen(line)-1] = 0;
+        strcat(line, ".dat");
+        curr_list = read_from_playlist(line);
+        print_song_list(curr_list);
       }
       else if (choice == 'T' || choice == 't'){ //testing
 
