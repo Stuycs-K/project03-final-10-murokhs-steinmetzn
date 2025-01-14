@@ -88,18 +88,23 @@ int main(){
         create_playlist(line);
       }
       else if (choice == 'P' || choice == 'p'){
-        printf("Select your playlist: \n");
+        printf("\n***Playlists*** \n"); //should always have a default there
         list_playlists();
+        printf("Select your playlist: \n");
+        fgets(line, sizeof(line), stdin);
+        line[strlen(line)-1] = 0;
+        strcat(line, ".dat");
+        play_playlist(line);
         //user choice
         //load playlist from file
         //simulate playing...
       }
       else if (choice == 'V' || choice == 'v'){
         //suggestion: prompt user at the end, asking if they'd like to play it
-        printf("Playlists: \n"); //should always have a default there
+        printf("\n***Playlists*** \n"); //should always have a default there
         list_playlists();
         printf("Select your playlist: \n");
-        fgets(line, sizeof(line), stdin); 
+        fgets(line, sizeof(line), stdin);
         line[strlen(line)-1] = 0;
         strcat(line, ".dat");
         curr_list = read_from_playlist(line);
