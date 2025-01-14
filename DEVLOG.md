@@ -60,6 +60,10 @@ full class period
 - working on code
 full class period
 
+### 2024-01-14 - mp3 tag library
+- figuring it out ... errors ...
+full class period
+
 ## Naomi Steinmetz
 
 ### 2024-01-06 - Proposal/Discussion/README
