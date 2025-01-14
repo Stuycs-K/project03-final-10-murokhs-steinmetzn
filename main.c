@@ -125,7 +125,7 @@ int main(){
         add_song(line);
 
         //playing
-        play_playlist(line);
+        //play_playlist(line);
 
       }
       else if (choice == 'L' || choice == 'l'){

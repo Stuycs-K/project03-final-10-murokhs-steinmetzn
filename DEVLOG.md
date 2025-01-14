@@ -115,3 +115,8 @@ full class period
 - finished read_from_playlist
 - started testing add_song
 full class period
+
+### 2024-01-13 - add_song debugging
+- debugged read_from_playlist
+- trying debugging add_song, still minor input error
+35 min

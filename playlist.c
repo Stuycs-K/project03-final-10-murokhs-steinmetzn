@@ -123,7 +123,6 @@ struct song_node* read_from_playlist(char * name){
     bytes = read(playlist, &curr, sizeof(struct song_node));
     song_list = insert_back(song_list, curr.artist, curr.title, curr.album, curr.genre, curr.year);
   }
-  //print_song_list(song_list);
   chdir("..");
   return song_list;
 }
@@ -157,7 +156,8 @@ void add_song(char * filename){
   printf("\nYear of song: ");
   fgets(line, sizeof(line), stdin);
   line[strlen(line)-1] = 0;
-  sscanf(" %d ", line, &year);
+  sscanf("%d", line, &year);
+  printf("line: %s, year: %d\n", line, year);
 
 
   curr_list = insert_back(curr_list, artist, title, album, genre, year);
