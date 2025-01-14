@@ -1,6 +1,6 @@
 compile lib:  main.o node.o library.o playlist.o mp3.o
 	@gcc -o lib node.o main.o library.o playlist.o mp3.o
-main.o: main.c node.h library.h playlist.h mp3.h 
+main.o: main.c node.h library.h playlist.h mp3.h
 	@gcc -c main.c
 node.o: node.c node.h
 	@gcc -c node.c
