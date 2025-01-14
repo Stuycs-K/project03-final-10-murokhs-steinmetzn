@@ -116,14 +116,16 @@ int main(){
           {"17 SEVENTEEN", "USB", "russian", "hyperpop"}
         };
         for (int i = 0; i<9; i++) {
-          curr_list = insert_alphabetical(curr_list, songs[i][0], songs[i][1], songs[i][2], songs[i][3], 2);
+          curr_list = insert_back(curr_list, songs[i][0], songs[i][1], songs[i][2], songs[i][3], 2);
         }
 
         //write
-        curr_list = write_to_playlist(line, curr_list);
+        curr_list = write_to_playlist(line, curr_list); //good up to here
+
+        add_song(line);
 
         //playing
-        play_playlist(line);
+        //play_playlist(line);
 
       }
       else if (choice == 'L' || choice == 'l'){

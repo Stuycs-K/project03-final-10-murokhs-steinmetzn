@@ -55,6 +55,11 @@ full class period
 - made mp3.c/h files
 ~20 mins
 
+### 2024-01-13 - mp3 tag library
+- utilizing id3v2lib library to access mp3 tags
+- working on code
+full class period
+
 ## Naomi Steinmetz
 
 ### 2024-01-06 - Proposal/Discussion/README
@@ -100,3 +105,18 @@ full class period
 ### 2024-01-10 - test playing songs
 - modifications including ascii art and minor edits
 full class period
+
+### 2024-01-13 - add_song
+- wrote first draft of add_song
+15 min
+
+### 2024-01-13 - insert_back
+- wrote and tested insert_back
+- finished read_from_playlist
+- started testing add_song
+full class period
+
+### 2024-01-13 - add_song debugging
+- debugged read_from_playlist
+- trying debugging add_song, still minor input error
+35 min

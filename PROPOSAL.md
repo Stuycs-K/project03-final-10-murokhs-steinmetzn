@@ -21,11 +21,11 @@ We will be building on the music library lab to incorporate new elements that we
     
 # Intended pacing:
 
-Jan 8: song node modifications and working functionality of initial lab adjustment
-Jan 10: working UI for all functions user will be able to access
-Jan 13: reading from mp3 files
-Jan 15: play songs (simulated on terminal)
-Jan 15: playlist read/write
+Jan 8: song node modifications and working functionality of initial lab adjustment ✅
+Jan 10: working UI for all functions user will be able to access ✅
+Jan 13: reading from mp3 files 
+Jan 15: play songs (simulated on terminal) ✅
+Jan 15: playlist read/write ✅
 Jan 17: signal stuff
 Jan 19: optional features (modify mp3 file tags, play songs in media player, cleaner UI)
 Jan 20: record video

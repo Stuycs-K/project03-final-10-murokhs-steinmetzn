@@ -82,7 +82,6 @@ void play_playlist(char * filename){
   }
   struct song_node * songs = NULL;
   struct song_node curr;
-  char buffer[256];
   int bytes;
   bytes = read(r_file, &curr,sizeof(struct song_node));
   while (bytes){
@@ -106,15 +105,26 @@ void play_playlist(char * filename){
 struct song_node* read_from_playlist(char * name){
   char * path = "./playlists";
   chdir(path);
+  int arr_size;
+  int ind_bytes = sizeof(struct song_node);
+  struct stat stat_buffer;
+  stat(name, &stat_buffer);
+  arr_size = stat_buffer.st_size / ind_bytes;
+  printf("arr size: %lld/%d\n", stat_buffer.st_size, ind_bytes);
   int playlist = open(name, O_RDONLY);
   if(playlist==-1){
     err();
   }
-  struct song_node*temp = (struct song_node*) malloc(sizeof(struct song_node));
+  struct song_node*temp = NULL; //took away malloc bc that was messing with first node
   struct song_node*song_list = temp;
-  while(read(playlist, temp,sizeof(struct song_node))){
-    ///hfjdhjsfdjkfsfd
+  struct song_node curr;
+  int bytes;
+  for (int i = 0; i < arr_size; i++){
+    bytes = read(playlist, &curr, sizeof(struct song_node));
+    song_list = insert_back(song_list, curr.artist, curr.title, curr.album, curr.genre, curr.year);
   }
+  chdir("..");
+  return song_list;
 }
 
 void add_song(char * filename){
@@ -125,10 +135,32 @@ void add_song(char * filename){
   char genre[256];
   int year;
   struct song_node * curr_list = read_from_playlist(filename); //note: read_from_playlist is not finished yet
+
+  //get new song
   printf("Title of song: ");
   fgets(line, sizeof(line), stdin);
+  line[strlen(line)-1] = 0;
   strcpy(title, line);
   printf("\nArtist of song: ");
   fgets(line, sizeof(line), stdin);
+  line[strlen(line)-1] = 0;
   strcpy(artist, line);
+  printf("\nAlbum of song: ");
+  fgets(line, sizeof(line), stdin);
+  line[strlen(line)-1] = 0;
+  strcpy(album, line);
+  printf("\nGenre of song: ");
+  fgets(line, sizeof(line), stdin);
+  line[strlen(line)-1] = 0;
+  strcpy(genre, line);
+  printf("\nYear of song: ");
+  fgets(line, sizeof(line), stdin);
+  line[strlen(line)-1] = 0;
+  sscanf("%d", line, &year);
+  printf("line: %s, year: %d\n", line, year);
+
+
+  curr_list = insert_back(curr_list, artist, title, album, genre, year);
+  curr_list = write_to_playlist(filename, curr_list);
+  printf("Added %s by %s, album %s, genre %s, year %d to %s.\n", title, artist, album, genre, year, filename);
 }
