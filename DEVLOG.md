@@ -124,3 +124,8 @@ full class period
 - debugged read_from_playlist
 - trying debugging add_song, still minor input error
 35 min
+
+### 2024-01-14 - playing and viewing
+- resolving issues with add_song and tweaking list_playlists
+- writing and testing playing and viewing
+full class period

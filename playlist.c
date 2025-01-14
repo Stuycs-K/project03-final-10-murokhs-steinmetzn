@@ -83,6 +83,11 @@ void play_playlist(char * filename){
   if (r_file == -1){
     err();
   }
+  struct stat stat_buffer;
+  stat(filename, &stat_buffer);
+  if (stat_buffer.st_size == 0){
+    printf("This playlist is currently empty. To add to it, go to edit playlist.\n\n");
+  }
   struct song_node * songs = NULL;
   struct song_node curr;
   int bytes;
