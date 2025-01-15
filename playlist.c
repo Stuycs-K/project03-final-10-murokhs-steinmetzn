@@ -59,18 +59,17 @@ void create_playlist(char * name){ //feed in name including .dat
 }
 
 struct song_node * write_to_playlist(char * name, struct song_node* song_list){ //feed in name including .dat
+  char line[256];
+  strcpy(line, name);
   char * path = "./playlists";
   chdir(path);
-  int playlist = open(name, O_WRONLY | O_TRUNC, 0644);
+  int playlist = open(line, O_WRONLY | O_TRUNC, 0644);
   while(playlist==-1){
-    char line[256];
-    err();
     printf("Playlist not found. Please re-enter: \n");
     fgets(line, sizeof(line), stdin);
     line[strlen(line)-1] = 0;
     strcat(line, ".dat");
-    strcpy(name, line);
-    playlist = open(name, O_WRONLY | O_TRUNC, 0644);
+    playlist = open(line, O_WRONLY | O_TRUNC, 0644);
   }
   struct song_node * beginning = song_list;
   while(song_list!=NULL){
@@ -79,7 +78,7 @@ struct song_node * write_to_playlist(char * name, struct song_node* song_list){ 
   }
   free_list(beginning);
   close(playlist);
-  printf("succesfully wrote to %s, cleared active songlist\n", name);
+  printf("succesfully wrote to %s, cleared active songlist\n", line);
   chdir("..");
 }
 
@@ -131,12 +130,9 @@ struct song_node* read_from_playlist(char * name){
   while(playlist==-1){
     printf("Playlist not found. Please re-enter: \n");
     fgets(line, sizeof(line), stdin);
-    //printf("ello\n");
     line[strlen(line)-1] = 0;
     strcat(line, ".dat");
-    //printf("ello3\n");
-    playlist = open(line, O_WRONLY | O_TRUNC, 0644);
-    //printf("ello2\n");
+    playlist = open(line, O_RDONLY);
   }
   struct song_node*temp = NULL; //took away malloc bc that was messing with first node
   struct song_node*song_list = temp;

@@ -93,9 +93,9 @@ int main(){
         printf("Select your playlist: \n");
         fgets(line, sizeof(line), stdin);
         line[strlen(line)-1] = 0;
-        printf("***Titles in %s:***\n", line);
         strcat(line, ".dat");
         curr_list = read_from_playlist(line);
+        printf("***Titles in %s:***\n", line);
         print_song_list(curr_list);
         printf("(R)emove or (A)dd song?\n");
         fgets(options, sizeof(options), stdin);
