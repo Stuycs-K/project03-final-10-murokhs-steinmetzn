@@ -62,8 +62,15 @@ struct song_node * write_to_playlist(char * name, struct song_node* song_list){ 
   char * path = "./playlists";
   chdir(path);
   int playlist = open(name, O_WRONLY | O_TRUNC, 0644);
-  if(playlist==-1){
+  while(playlist==-1){
+    char line[256];
     err();
+    printf("Playlist not found. Please re-enter: \n");
+    fgets(line, sizeof(line), stdin);
+    line[strlen(line)-1] = 0;
+    strcat(line, ".dat");
+    strcpy(name, line);
+    playlist = open(name, O_WRONLY | O_TRUNC, 0644);
   }
   struct song_node * beginning = song_list;
   while(song_list!=NULL){
@@ -111,16 +118,25 @@ void play_playlist(char * filename){
 
 
 struct song_node* read_from_playlist(char * name){
+  char line[256];
+  strcpy(line, name);
   char * path = "./playlists";
   chdir(path);
   int arr_size;
   int ind_bytes = sizeof(struct song_node);
   struct stat stat_buffer;
-  stat(name, &stat_buffer);
+  stat(line, &stat_buffer);
   arr_size = stat_buffer.st_size / ind_bytes;
-  int playlist = open(name, O_RDONLY);
-  if(playlist==-1){
-    err();
+  int playlist = open(line, O_RDONLY);
+  while(playlist==-1){
+    printf("Playlist not found. Please re-enter: \n");
+    fgets(line, sizeof(line), stdin);
+    //printf("ello\n");
+    line[strlen(line)-1] = 0;
+    strcat(line, ".dat");
+    //printf("ello3\n");
+    playlist = open(line, O_WRONLY | O_TRUNC, 0644);
+    //printf("ello2\n");
   }
   struct song_node*temp = NULL; //took away malloc bc that was messing with first node
   struct song_node*song_list = temp;
@@ -141,7 +157,7 @@ void add_song(char * filename){
   char album[256];
   char genre[256];
   int year;
-  struct song_node * curr_list = read_from_playlist(filename); 
+  struct song_node * curr_list = read_from_playlist(filename);
 
   //get new song
   printf("Title of song: ");

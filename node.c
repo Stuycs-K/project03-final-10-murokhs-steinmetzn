@@ -45,6 +45,9 @@ void print_song_list(struct song_node * list){
       i++;
     }
   }
+  else{
+    printf("Playlist currently empty.\n");
+  }
 }
 
 void print_node(struct song_node * song){

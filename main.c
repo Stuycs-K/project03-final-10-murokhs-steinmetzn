@@ -65,7 +65,7 @@ int main(){
     struct song_node* curr_list = NULL;
     printf("Hello! Starting up Knockoff Sony Walkman!...\n\n");
     while (1){
-      printf("MENU: \n");
+      printf("\nMENU: \n");
       printf("(C)reate playlist\n"); //working
       printf("(E)dit playlist\n"); //will have to select playlist, then select whether removing or adding
       printf("(V)iew playlist\n"); //working
@@ -133,7 +133,7 @@ int main(){
       else if (choice == 'T' || choice == 't'){ //testing
 
         //create
-        printf("Name your playlist: ");
+        /*printf("Name your playlist: ");
         fgets(line, sizeof(line), stdin);
         line[strlen(line)-1] = 0;
         strcat(line, ".dat");
@@ -156,7 +156,7 @@ int main(){
         }
 
         //write
-        curr_list = write_to_playlist(line, curr_list); 
+        curr_list = write_to_playlist(line, curr_list);
 
         add_song(line);
 
@@ -167,6 +167,10 @@ int main(){
         remove_song(line);
 
         curr_list = read_from_playlist(line);
+
+        print_song_list(curr_list);*/
+
+        curr_list = read_from_playlist("tatertots.dat");
 
         print_song_list(curr_list);
 
