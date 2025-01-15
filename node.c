@@ -26,7 +26,6 @@ struct song_node * insert_back(struct song_node * list, char* artist, char* titl
   m->next = NULL;
   if (list==NULL){
     list = m;
-    print_song_list(list);
     return list;
   }
   struct song_node * begin = list;
@@ -34,7 +33,6 @@ struct song_node * insert_back(struct song_node * list, char* artist, char* titl
     list = list->next;
   }
   list->next = m;
-  print_song_list(list);
   return begin;
 }
 
@@ -170,5 +168,5 @@ struct song_node * remove_node(struct song_node * list, char * artist, char * ti
     list = list->next;
   }
   printf("ERROR song not found\n");
-  return begin; //retuns null nothing was removed
+  return begin; //returns null nothing was removed
 }

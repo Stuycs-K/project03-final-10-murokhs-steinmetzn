@@ -66,10 +66,10 @@ int main(){
     printf("Hello! Starting up Knockoff Sony Walkman!...\n\n");
     while (1){
       printf("MENU: \n");
-      printf("(C)reate playlist\n"); //will be pretty straightforward, just create a song_list
+      printf("(C)reate playlist\n"); //working
       printf("(E)dit playlist\n"); //will have to select playlist, then select whether removing or adding
-      printf("(V)iew playlist\n"); //will have to select playlist
-      printf("(P)lay playlist\n"); //will have to select playlist, then decide which song to play, or if this will be shuffle play, etc.
+      printf("(V)iew playlist\n"); //working
+      printf("(P)lay playlist\n"); //working
       printf("(T)esting\n"); //temporary
       printf("(L)eave\n");
 
@@ -87,6 +87,29 @@ int main(){
         strcat(line, ".dat");
         create_playlist(line);
       }
+      else if (choice == 'E' || choice == 'e'){
+        printf("\n***Playlists*** \n"); //should always have a default there
+        list_playlists();
+        printf("Select your playlist: \n");
+        fgets(line, sizeof(line), stdin);
+        line[strlen(line)-1] = 0;
+        printf("***Titles in %s:***\n", line);
+        strcat(line, ".dat");
+        curr_list = read_from_playlist(line);
+        print_song_list(curr_list);
+        printf("(R)emove or (A)dd song?\n");
+        fgets(options, sizeof(options), stdin);
+        sscanf(options, " %c ", &choice);
+        if (choice == 'R' || choice == 'r'){
+          remove_song(line);
+        }
+        else if (choice == 'A' || choice == 'a'){
+          add_song(line);
+        }
+        else{
+          printf("Please re-enter.\n");
+        }
+      }
       else if (choice == 'P' || choice == 'p'){
         printf("\n***Playlists*** \n"); //should always have a default there
         list_playlists();
@@ -95,9 +118,6 @@ int main(){
         line[strlen(line)-1] = 0;
         strcat(line, ".dat");
         play_playlist(line);
-        //user choice
-        //load playlist from file
-        //simulate playing...
       }
       else if (choice == 'V' || choice == 'v'){
         //suggestion: prompt user at the end, asking if they'd like to play it
@@ -136,12 +156,22 @@ int main(){
         }
 
         //write
-        curr_list = write_to_playlist(line, curr_list); //good up to here
+        curr_list = write_to_playlist(line, curr_list); 
 
         add_song(line);
 
+        curr_list = read_from_playlist(line);
+
+        print_song_list(curr_list);
+
+        remove_song(line);
+
+        curr_list = read_from_playlist(line);
+
+        print_song_list(curr_list);
+
         //playing
-        play_playlist(line);
+        //play_playlist(line);
 
       }
       else if (choice == 'L' || choice == 'l'){
@@ -157,22 +187,15 @@ int main(){
         printf("Select your playlist: \n");
         //list out playlists
         //user choice
-        //load playlist from file
+        //load playlist from file, print it
+        printf("***Titles in %s:***\n", curr);
+        print_song_list(curr_list);
         printf("(R)emove or (A)dd song?\n");
         fgets(options, sizeof(options), stdin);
         sscanf(options, " %c ", &choice);
         //write playlist to file, overwrite ??
     }
-    else if (choice == 'V' || choice == 'v'){
-        printf("Select your playlist: \n");
-        list_playlists();
-        //user choice
-        fgets(line, sizeof(line), stdin); //take in playlist name
-        //sscanf(line, " %s ", &line);
-        line[strlen(line)-1] = 0;
-        //load playlist from file
-        //print_song_list(playlist);
-    }*/
+*/
 
     //question: should they be able to access and edit the queue? if time permits yes
     return 0;
