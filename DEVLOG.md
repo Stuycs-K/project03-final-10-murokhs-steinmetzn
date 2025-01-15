@@ -135,3 +135,8 @@ full class period
 - wrote remove_song
 - tested and finished rough of ui
 30 min
+
+### 2024-01-15 - wrong playlist name
+- wrote in while loop for if playlist name doesn't exist yet in read_from_playlist and write_to_playlist
+- debugged view and read_from_playlist
+full class period

@@ -117,6 +117,7 @@ void play_playlist(char * filename){
 
 
 struct song_node* read_from_playlist(char * name){
+  int tries = 0;
   char line[256];
   strcpy(line, name);
   char * path = "./playlists";
@@ -127,12 +128,17 @@ struct song_node* read_from_playlist(char * name){
   stat(line, &stat_buffer);
   arr_size = stat_buffer.st_size / ind_bytes;
   int playlist = open(line, O_RDONLY);
-  while(playlist==-1){
+  while(playlist==-1 && tries < 5){
     printf("Playlist not found. Please re-enter: \n");
     fgets(line, sizeof(line), stdin);
     line[strlen(line)-1] = 0;
     strcat(line, ".dat");
     playlist = open(line, O_RDONLY);
+    tries++;
+    if (tries >= 5){
+      printf("Exceeded number of tries.\n");
+      return NULL;
+    }
   }
   struct song_node*temp = NULL; //took away malloc bc that was messing with first node
   struct song_node*song_list = temp;
