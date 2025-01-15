@@ -129,3 +129,9 @@ full class period
 - resolving issues with add_song and tweaking list_playlists
 - writing and testing playing and viewing
 full class period
+
+### 2024-01-14 - editing
+- wrote editing option in menu
+- wrote remove_song
+- tested and finished rough of ui
+30 min

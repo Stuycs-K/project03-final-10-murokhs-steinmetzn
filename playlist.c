@@ -54,7 +54,7 @@ void create_playlist(char * name){ //feed in name including .dat
   if(w_file==-1){
     err();
   }
-  printf("%s successfully created. Currently empty.\n", name);
+  printf("%s successfully created. Currently empty.\n\n", name);
   chdir("..");
 }
 
@@ -118,7 +118,6 @@ struct song_node* read_from_playlist(char * name){
   struct stat stat_buffer;
   stat(name, &stat_buffer);
   arr_size = stat_buffer.st_size / ind_bytes;
-  printf("arr size: %ld/%d\n", stat_buffer.st_size, ind_bytes);
   int playlist = open(name, O_RDONLY);
   if(playlist==-1){
     err();
@@ -142,7 +141,7 @@ void add_song(char * filename){
   char album[256];
   char genre[256];
   int year;
-  struct song_node * curr_list = read_from_playlist(filename); //note: read_from_playlist is not finished yet
+  struct song_node * curr_list = read_from_playlist(filename); 
 
   //get new song
   printf("Title of song: ");
@@ -165,10 +164,29 @@ void add_song(char * filename){
   fgets(line, sizeof(line), stdin);
   line[strlen(line)-1] = 0;
   year = atoi(line);
-  printf("line: %s, year: %d\n", line, year);
 
 
   curr_list = insert_back(curr_list, artist, title, album, genre, year);
   curr_list = write_to_playlist(filename, curr_list);
   printf("Added %s by %s, album %s, genre %s, year %d to %s.\n", title, artist, album, genre, year, filename);
+}
+
+void remove_song(char * filename){
+  char line[256];
+  char title[256];
+  char artist[256];
+
+  struct song_node * curr_list = read_from_playlist(filename);
+  printf("Title of song: ");
+  fgets(line, sizeof(line), stdin);
+  line[strlen(line)-1] = 0;
+  strcpy(title, line);
+  printf("\nArtist of song: ");
+  fgets(line, sizeof(line), stdin);
+  line[strlen(line)-1] = 0;
+  strcpy(artist, line);
+
+  curr_list = remove_node(curr_list, artist, title);
+  curr_list = write_to_playlist(filename, curr_list);
+  printf("Removing %s by %s...\n", title, artist);
 }
