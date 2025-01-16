@@ -20,9 +20,11 @@ static void sighandler(int signo) {
       exit(0);
     }
   }
-  // if (signo == SIGQUIT){
-  //   printf("\nPPID: %d, PID: %d\n", getppid(), getpid());
-  // }
+  if (signo == SIGQUIT){
+    //break out of while loop?
+    printf("\nLeaving...\n");
+    exit(0);
+  }
 }
 
 void test_run(){
@@ -74,9 +76,11 @@ void test_run(){
   reset(library);
 }
 
+
 int main(){
     //test_run();
     signal(SIGINT, sighandler);
+    signal(SIGQUIT, sighandler);
     char options[10];
     char line[256];
     char choice;
