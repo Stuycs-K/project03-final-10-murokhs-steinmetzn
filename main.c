@@ -7,6 +7,23 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <signal.h>
+
+static void sighandler(int signo) {
+  if ( signo == SIGINT ){
+    char options[10];
+    char choice;
+    printf("\nAre you sure you would like to exit? (y/n)\n");
+    fgets(options, sizeof(options), stdin); //take in first selection
+    sscanf(options, " %c ", &choice);
+    if (choice == 'Y' || choice =='y'){
+      exit(0);
+    }
+  }
+  // if (signo == SIGQUIT){
+  //   printf("\nPPID: %d, PID: %d\n", getppid(), getpid());
+  // }
+}
 
 void test_run(){
   struct song_node* song_list = NULL;
@@ -59,6 +76,7 @@ void test_run(){
 
 int main(){
     //test_run();
+    signal(SIGINT, sighandler);
     char options[10];
     char line[256];
     char choice;
@@ -94,8 +112,8 @@ int main(){
         fgets(line, sizeof(line), stdin);
         line[strlen(line)-1] = 0;
         strcat(line, ".dat");
-        curr_list = read_from_playlist(line);
-        printf("***Titles in %s:***\n", line);
+        curr_list = read_from_playlist(line); //crashes if you put the wrong thing
+        printf("***Titles in %s:***\n", line); 
         print_song_list(curr_list);
         printf("(R)emove or (A)dd song?\n");
         fgets(options, sizeof(options), stdin);
@@ -186,20 +204,6 @@ int main(){
       }
     }
     printf("exiting...\n");
-/*
-    else if (choice == 'E' || choice == 'e'){
-        printf("Select your playlist: \n");
-        //list out playlists
-        //user choice
-        //load playlist from file, print it
-        printf("***Titles in %s:***\n", curr);
-        print_song_list(curr_list);
-        printf("(R)emove or (A)dd song?\n");
-        fgets(options, sizeof(options), stdin);
-        sscanf(options, " %c ", &choice);
-        //write playlist to file, overwrite ??
-    }
-*/
 
     //question: should they be able to access and edit the queue? if time permits yes
     return 0;
