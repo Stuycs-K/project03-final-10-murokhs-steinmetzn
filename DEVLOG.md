@@ -64,6 +64,14 @@ full class period
 - figuring it out ... errors ...
 full class period
 
+### 2024-01-15 - mp3 tag library
+- figuring it out ... 
+~40 mins
+
+### 2024-01-16 - sigs and playlist
+- fixing bugs
+full class period
+
 ## Naomi Steinmetz
 
 ### 2024-01-06 - Proposal/Discussion/README
