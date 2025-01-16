@@ -140,3 +140,8 @@ full class period
 - wrote in while loop for if playlist name doesn't exist yet in read_from_playlist and write_to_playlist
 - debugged view and read_from_playlist
 full class period
+
+### 2024-01-15 - SIGINT and SIGQUIT
+- tried debugging wrong playlist name, unsuccessful
+- started adding signals (SIGINT and SIGQUIT)
+30 min
