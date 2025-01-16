@@ -143,11 +143,11 @@ struct song_node* read_from_playlist(char * name){
   }
   struct song_node*temp = NULL; //took away malloc bc that was messing with first node
   struct song_node*song_list = temp;
-  struct song_node curr;
+  struct song_node*curr = (struct song_node*) malloc(sizeof(struct song_node));
   int bytes;
   for (int i = 0; i < arr_size; i++){
-    bytes = read(playlist, &curr, sizeof(struct song_node));
-    song_list = insert_back(song_list, curr.artist, curr.title, curr.album, curr.genre, curr.year);
+    bytes = read(playlist, curr, sizeof(struct song_node));
+    song_list = insert_back(song_list, curr->artist, curr->title, curr->album, curr->genre, curr->year);
   }
   chdir("..");
   return song_list;
