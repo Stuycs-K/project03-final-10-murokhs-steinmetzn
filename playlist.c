@@ -128,7 +128,7 @@ struct song_node* read_from_playlist(char * name){
   stat(line, &stat_buffer);
   arr_size = stat_buffer.st_size / ind_bytes;
   int playlist = open(line, O_RDONLY);
-  while(playlist==-1 && tries < 5){
+  while(playlist==-1){
     printf("Playlist not found. Please re-enter: \n");
     fgets(line, sizeof(line), stdin);
     line[strlen(line)-1] = 0;
@@ -137,6 +137,7 @@ struct song_node* read_from_playlist(char * name){
     tries++;
     if (tries >= 5){
       printf("Exceeded number of tries.\n");
+      chdir("..");
       return NULL;
     }
   }

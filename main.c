@@ -37,6 +37,8 @@ int main(){
     printf("\033[35;46m\n");
     printf("Hello! Starting up Knockoff Sony Walkman!...\n\n");
     while (1){
+      signal(SIGINT, sighandler);
+      signal(SIGQUIT, sighandler);
       printf("\nMENU: \n");
       printf("(C)reate playlist\n"); //working
       printf("(E)dit playlist\n"); //will have to select playlist, then select whether removing or adding
