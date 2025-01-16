@@ -145,3 +145,8 @@ full class period
 - tried debugging wrong playlist name, unsuccessful
 - started adding signals (SIGINT and SIGQUIT)
 30 min
+
+### 2024-01-16 - colors and shuffle
+- added terminal colors
+- started shuffle option
+full class period

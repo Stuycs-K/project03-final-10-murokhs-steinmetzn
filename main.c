@@ -44,6 +44,7 @@ int main(){
       printf("(E)dit playlist\n"); //will have to select playlist, then select whether removing or adding
       printf("(V)iew playlist\n"); //working
       printf("(P)lay playlist\n"); //working
+      printf("(S)huffle playlist\n"); //unfinished
       printf("(T)esting\n"); //temporary
       printf("(L)eave\n");
 
@@ -103,6 +104,25 @@ int main(){
         strcat(line, ".dat");
         curr_list = read_from_playlist(line);
         print_song_list(curr_list);
+      }
+      else if (choice == 'S' || choice == 's'){
+        printf("\n***Playlists*** \n"); //should always have a default there
+        list_playlists();
+        printf("Select your playlist: \n");
+        fgets(line, sizeof(line), stdin);
+        line[strlen(line)-1] = 0;
+        strcat(line, ".dat");
+        curr_list = read_from_playlist(line);
+        print_song_list(curr_list);
+        printf("Would you like to change the order? (y/n)\n");
+        fgets(options, sizeof(options), stdin); //take in first selection
+        sscanf(options, " %c ", &choice);
+        if (choice == 'Y' || choice =='y'){
+          //shuffle
+          //alphabetical
+          //reverse
+          //possibly: sort by year
+        }
       }
       else if (choice == 'T' || choice == 't'){ //testing
 
