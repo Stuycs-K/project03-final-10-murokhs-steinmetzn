@@ -79,14 +79,15 @@ void test_run(){
 
 int main(){
     //test_run();
-    signal(SIGINT, sighandler);
-    signal(SIGQUIT, sighandler);
+
     char options[10];
     char line[256];
     char choice;
     struct song_node* curr_list = NULL;
     printf("Hello! Starting up Knockoff Sony Walkman!...\n\n");
     while (1){
+      signal(SIGINT, sighandler);
+      signal(SIGQUIT, sighandler);
       printf("\nMENU: \n");
       printf("(C)reate playlist\n"); //working
       printf("(E)dit playlist\n"); //will have to select playlist, then select whether removing or adding
@@ -117,7 +118,7 @@ int main(){
         line[strlen(line)-1] = 0;
         strcat(line, ".dat");
         curr_list = read_from_playlist(line); //crashes if you put the wrong thing
-        printf("***Titles in %s:***\n", line); 
+        printf("***Titles in %s:***\n", line);
         print_song_list(curr_list);
         printf("(R)emove or (A)dd song?\n");
         fgets(options, sizeof(options), stdin);
