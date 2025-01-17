@@ -65,11 +65,15 @@ full class period
 full class period
 
 ### 2024-01-15 - mp3 tag library
-- figuring it out ... 
+- figuring it out ...
 ~40 mins
 
 ### 2024-01-16 - sigs and playlist
 - fixing bugs
+full class period
+
+### 2024-01-14 - mp3 tag library
+- FIGURED IT OUT. STARTED ACTUAL FUNCTIONALITY.
 full class period
 
 ## Naomi Steinmetz
