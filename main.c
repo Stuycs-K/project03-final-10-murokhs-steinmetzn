@@ -44,7 +44,7 @@ int main(){
       printf("(E)dit playlist\n"); //will have to select playlist, then select whether removing or adding
       printf("(V)iew playlist\n"); //working
       printf("(P)lay playlist\n"); //working
-      printf("(S)huffle playlist\n"); //unfinished
+      printf("(S)huffle playlist\n"); //working
       printf("(T)esting\n"); //temporary
       printf("(L)eave\n");
 
@@ -190,6 +190,7 @@ int main(){
 
       }
       else if (choice == 'L' || choice == 'l'){
+        printf("\nGOODBYE\n");
         break;
       }
       else{
