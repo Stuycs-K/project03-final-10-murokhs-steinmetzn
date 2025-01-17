@@ -27,11 +27,11 @@ struct song_node * insert_from_mp3(struct song_node * list, char* album_name){
         //use insert_alphabetical
     ID3v2_Tag* tag = ID3v2_read_tag("mp3/imaginaerum/02. Nightwish - Storytime.mp3");
     ID3v2_TextFrame* artist_frame = ID3v2_Tag_get_artist_frame(tag);
-    const char encoding = artist_frame->data->encoding;
-    if (encoding == ID3v2_ENCODING_ISO)
-      {
-          printf("iso");
-      }
-    //artist_frame = ID3v2_Tag_get_artist_frame(tag);
-    //printf("artist: %s", artist_frame->frames);
+    char* artist;
+    strcpy(artist, artist_frame->data->text);
+    printf("%s\n", artist);
+    ID3v2_TextFrame* album_frame = ID3v2_Tag_get_album_frame(tag);
+    char* album;
+    strcpy(album, album_frame->data->text);
+    printf("%s\n", album);
 }
