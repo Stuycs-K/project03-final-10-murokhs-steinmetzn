@@ -231,3 +231,49 @@ void shuffle_playlist(char * filename){
 
   new_list = write_to_playlist(filename, new_list);
 }
+
+
+void alphabetical_playlist(char * filename){ //dupe of shuffle_playlist, except change to insert_alphabetical
+  char line[256];
+  char title[256];
+  char artist[256];
+
+  struct song_node * curr_list = read_from_playlist(filename);
+  struct song_node * new_list = NULL;
+  struct song_node * curr;
+  if (curr_list == NULL){
+    printf("Playlist currently empty. Please go to edit to add songs.\n");
+    return;
+  }
+
+  while (curr_list != NULL){
+    curr = random_finder(curr_list);
+    new_list = insert_alphabetical(new_list, curr->artist, curr->title, curr->album, curr->genre, curr->year);
+    curr_list = remove_node(curr_list, curr->artist, curr->title);
+  }
+
+  new_list = write_to_playlist(filename, new_list);
+}
+
+
+void reverse_playlist(char * filename){ //dupe of shuffle_playlist, except change to insert_alphabetical
+  char line[256];
+  char title[256];
+  char artist[256];
+
+  struct song_node * curr_list = read_from_playlist(filename);
+  struct song_node * new_list = NULL;
+  struct song_node * curr;
+  if (curr_list == NULL){
+    printf("Playlist currently empty. Please go to edit to add songs.\n");
+    return;
+  }
+
+  while (curr_list != NULL){
+    curr = curr_list;
+    new_list = insert_front(new_list, curr->artist, curr->title, curr->album, curr->genre, curr->year);
+    curr_list = curr_list->next;
+  }
+
+  new_list = write_to_playlist(filename, new_list);
+}
