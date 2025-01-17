@@ -96,14 +96,22 @@ int main(){
       }
       else if (choice == 'V' || choice == 'v'){
         //suggestion: prompt user at the end, asking if they'd like to play it
-        printf("\n***Playlists*** \n"); //should always have a default there
-        list_playlists();
-        printf("Select your playlist: \n");
-        fgets(line, sizeof(line), stdin);
-        line[strlen(line)-1] = 0;
-        strcat(line, ".dat");
-        curr_list = read_from_playlist(line);
-        print_song_list(curr_list);
+        while (1){
+          printf("\n***Playlists*** \n"); //should always have a default there
+          list_playlists();
+          printf("Select your playlist: \n");
+          fgets(line, sizeof(line), stdin);
+          line[strlen(line)-1] = 0;
+          strcat(line, ".dat");
+          curr_list = read_from_playlist(line);
+          print_song_list(curr_list);
+          printf("Would you like to continue viewing playlists?(y/n)\n");
+          fgets(options, sizeof(options), stdin); //take in first selection
+          sscanf(options, " %c ", &choice);
+          if (choice != 'Y' && choice != 'y'){
+            break;
+          }
+        }
       }
       else if (choice == 'S' || choice == 's'){
         printf("\n***Playlists*** \n"); //should always have a default there
