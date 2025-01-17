@@ -9,4 +9,5 @@ void play_playlist(char * filename);
 struct song_node* read_from_playlist(char * name);
 void add_song(char * filename);
 void remove_song(char * filename);
+void shuffle_playlist(char * filename);
 #endif

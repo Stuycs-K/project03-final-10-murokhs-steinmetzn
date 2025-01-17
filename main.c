@@ -121,7 +121,9 @@ int main(){
           printf("(S)huffle, (A)lphabetical, or (R)everse?\n");
           fgets(options, sizeof(options), stdin); //take in first selection
           sscanf(options, " %c ", &choice);
-          //shuffle
+          if (choice == 'S' || choice == 's'){
+            shuffle_playlist(line);
+          }
           //alphabetical
           //reverse
           //possibly: sort by year
