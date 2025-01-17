@@ -3,6 +3,7 @@
 #include "playlist.h"
 #include "node.h"
 #include "mp3.h"
+#include "id3v2lib-dev/include/id3v2lib.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -181,12 +182,13 @@ int main(){
 
         print_song_list(curr_list);*/
 
-        curr_list = read_from_playlist("tatertots.dat");
+        //curr_list = read_from_playlist("tatertots.dat");
 
-        print_song_list(curr_list);
+        //print_song_list(curr_list);
 
         //playing
         //play_playlist(line);
+        curr_list = insert_from_mp3(curr_list, "a");
 
       }
       else if (choice == 'L' || choice == 'l'){
