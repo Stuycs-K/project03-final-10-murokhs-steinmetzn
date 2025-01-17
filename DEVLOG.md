@@ -166,3 +166,8 @@ full class period
 ### 2024-01-16 - shuffle_playlist
 - started writing shuffle_playlist
 15 min
+
+### 2024-01-17 - finish shuffle
+- wrote and tested alphabetical and reverse
+- wrote while loop in view
+full class period
