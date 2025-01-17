@@ -118,6 +118,9 @@ int main(){
         fgets(options, sizeof(options), stdin); //take in first selection
         sscanf(options, " %c ", &choice);
         if (choice == 'Y' || choice =='y'){
+          printf("(S)huffle, (A)lphabetical, or (R)everse?\n");
+          fgets(options, sizeof(options), stdin); //take in first selection
+          sscanf(options, " %c ", &choice);
           //shuffle
           //alphabetical
           //reverse

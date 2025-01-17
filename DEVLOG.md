@@ -158,3 +158,7 @@ full class period
 - added terminal colors
 - started shuffle option
 full class period
+
+### 2024-01-16 - shuffle_playlist
+- started writing shuffle_playlist
+15 min
