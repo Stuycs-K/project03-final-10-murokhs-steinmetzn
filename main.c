@@ -118,14 +118,18 @@ int main(){
         fgets(options, sizeof(options), stdin); //take in first selection
         sscanf(options, " %c ", &choice);
         if (choice == 'Y' || choice =='y'){
-          printf("(S)huffle, (A)lphabetical, or (R)everse?\n");
+          printf("(S)huffle, (A)lphabetical by artist, or (R)everse?\n");
           fgets(options, sizeof(options), stdin); //take in first selection
           sscanf(options, " %c ", &choice);
           if (choice == 'S' || choice == 's'){
             shuffle_playlist(line);
           }
-          //alphabetical
-          //reverse
+          else if (choice == 'A' || choice == 'a'){
+            alphabetical_playlist(line);
+          }
+          else if (choice == 'R' || choice == 'r'){
+            reverse_playlist(line);
+          }
           //possibly: sort by year
         }
       }
