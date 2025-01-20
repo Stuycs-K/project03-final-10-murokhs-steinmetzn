@@ -76,6 +76,11 @@ full class period
 - FIGURED IT OUT. STARTED ACTUAL FUNCTIONALITY.
 full class period
 
+### 2024-01-20 - load from mp3
+- works. fixed every bug known to man, but works
+- abbey_road album doesnt work with this for some reason so i deleted it
+~3 hours
+
 ## Naomi Steinmetz
 
 ### 2024-01-06 - Proposal/Discussion/README
