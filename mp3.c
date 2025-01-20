@@ -24,14 +24,18 @@
 struct song_node * insert_from_mp3(struct song_node * list, char* album_name){
     char * path;
     snprintf(path, strlen(album_name) + 5, "mp3/%s", album_name);
-    printf("%s\n", path);
-    //for every song in album_name folder
-        //get mp3 metadata (use libid3tag library)
-        //use insert_alphabetical
-        /*
-    ID3v2_Tag* tag = ID3v2_read_tag("mp3/imaginaerum/02. Nightwish - Storytime.mp3");
-    list = insert_alphabetical(list, (ID3v2_Tag_get_artist_frame(tag)->data->text), (ID3v2_Tag_get_title_frame(tag)->data->text), (ID3v2_Tag_get_album_frame(tag)->data->text), (ID3v2_Tag_get_genre_frame(tag)->data->text), 10);
-    ID3v2_Tag_free(tag);
-    */
+    struct dirent *entry;
+    DIR *dir = opendir(path);
+    while ((entry = readdir(dir)) != NULL) {
+        int len = strlen(entry->d_name);
+        if (len>4 && strcmp(entry->d_name + len - 4, ".mp3") == 0) { //if mp3 file
+            char *name;
+            snprintf(name, strlen(path) + strlen(entry->d_name) +2, "%s/%s", path, entry->d_name);
+            printf("%s\n", name);
+            ID3v2_Tag* tag = ID3v2_read_tag(name);
+            list = insert_alphabetical(list, (ID3v2_Tag_get_artist_frame(tag)->data->text), (ID3v2_Tag_get_title_frame(tag)->data->text), (ID3v2_Tag_get_album_frame(tag)->data->text), (ID3v2_Tag_get_genre_frame(tag)->data->text), 10);
+            ID3v2_Tag_free(tag);
+        }
+    }
     return list;
 }
