@@ -188,7 +188,8 @@ int main(){
 
         //playing
         //play_playlist(line);
-        curr_list = insert_from_mp3(curr_list, "a");
+        curr_list = insert_from_mp3(curr_list, "imaginaerum");
+        print_song_list(curr_list);
 
       }
       else if (choice == 'L' || choice == 'l'){
