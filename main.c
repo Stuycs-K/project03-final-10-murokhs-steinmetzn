@@ -80,7 +80,24 @@ int main(){
           remove_song(line);
         }
         else if (choice == 'A' || choice == 'a'){
-          add_song(line);
+          printf("(M)anually add or (L)oad from mp3 album?\n");
+          fgets(options, sizeof(options), stdin);
+          sscanf(options, " %c ", &choice);
+          if (choice == 'M' || choice == 'm'){
+            add_song(line);
+          }
+          else if (choice == 'L' || choice == 'l'){
+            list_mp3();
+            printf("Select your album: \n");
+            char album[128];
+            fgets(album, sizeof(album), stdin);
+            album[strlen(album)-1] = 0;
+            curr_list = insert_from_mp3(curr_list, album);
+            write_to_playlist(line, curr_list);
+          }
+          else{
+            printf("Please re-enter.\n");
+          }
         }
         else{
           printf("Please re-enter.\n");
@@ -188,7 +205,7 @@ int main(){
 
         //playing
         //play_playlist(line);
-        curr_list = insert_from_mp3(curr_list, "imaginaerum");
+        curr_list = insert_from_mp3(curr_list, "abbey_road");
         print_song_list(curr_list);
 
       }

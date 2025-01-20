@@ -14,4 +14,5 @@
 #include "id3v2lib-dev/include/modules/utils.h"
 struct song_node * insert_from_mp3(struct song_node * list, char* album_name);
 int read_yr(char* path);
+void list_mp3();
 #endif

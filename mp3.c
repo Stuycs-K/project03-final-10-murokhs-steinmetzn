@@ -24,7 +24,6 @@
 int read_yr(char* path){
     char txtname[256];
     snprintf(txtname, sizeof(txtname), "%s/year.txt", path);
-    printf("%s\n", txtname);
     FILE *file = fopen(txtname, "r");
     int output=0;
     fscanf(file, "%d", &output);
@@ -34,8 +33,8 @@ int read_yr(char* path){
 
 struct song_node * insert_from_mp3(struct song_node * list, char* album_name){
     int year = 0;
-    char * path;
-    snprintf(path, strlen(album_name) + 5, "mp3/%s", album_name);
+    char path[256];
+    snprintf(path, sizeof(path), "mp3/%s", album_name);
     //since reading year doesn't work for some reason, i added it to the folders manually lol
     year = read_yr(path);
     
@@ -43,8 +42,8 @@ struct song_node * insert_from_mp3(struct song_node * list, char* album_name){
     DIR *dir = opendir(path);
     while ((entry = readdir(dir)) != NULL) {
         int len = strlen(entry->d_name);
-        char *name;
-        snprintf(name, strlen(path) + strlen(entry->d_name) +2, "%s/%s", path, entry->d_name);
+        char name[1024];
+        snprintf(name, sizeof(name), "%s/%s", path, entry->d_name);
         
         if (len>4 && strcmp(entry->d_name + len - 4, ".mp3") == 0) { //if mp3 file
             ID3v2_Tag* tag = ID3v2_read_tag(name);
@@ -54,4 +53,22 @@ struct song_node * insert_from_mp3(struct song_node * list, char* album_name){
     }
     
     return list;
+}
+
+void list_mp3(){
+  char curr[256];
+  DIR * d;
+  d = opendir("mp3/");
+  struct dirent *entry;
+  int i = 1;
+  while(entry = readdir( d )){
+    if (strcmp(entry->d_name,".")!=0&&strcmp(entry->d_name,"..")!=0){
+      if (entry->d_type == DT_DIR){
+        strcpy(curr, entry->d_name);
+        printf("%d. %s\n", i, curr);
+        i++;
+      }
+    }
+  }
+  closedir(d);
 }
