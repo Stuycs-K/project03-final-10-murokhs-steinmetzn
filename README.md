@@ -58,3 +58,4 @@ When the program is run, a menu is displayed: </br>
 &nbsp;&nbsp;&nbsp;&nbsp;**The program can also be exited by ctrl+C, prompting the user to verify whether they would like to exit, or by ctrl+/ without double-checking.
 
 ### Video Link
+https://youtu.be/G01kQnATBC8
