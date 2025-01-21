@@ -20,6 +20,9 @@ static void sighandler(int signo) {
     if (choice == 'Y' || choice =='y'){
       exit(0);
     }
+    else{
+      printf("Please hit enter twice.\n");
+    }
   }
   if (signo == SIGQUIT){
     //break out of while loop?
