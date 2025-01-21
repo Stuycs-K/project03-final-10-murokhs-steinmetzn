@@ -176,3 +176,9 @@ full class period
 - wrote and tested alphabetical and reverse
 - wrote while loop in view
 full class period
+
+### 2024-01-20 - final debug
+- removed testing
+- fixed wrong filename bug in view
+- made default file
+~60 min
