@@ -8,7 +8,11 @@ Sasha Murokh and Naomi Steinmetz
        
 ### Project Description:
 
-Explain what is this project.
+This project is a music terminal interface inspired by Spotify and the layout of a Sony Walkman. Users are able to create playlists, add songs, and "play" them. While this project originally built off of the music library project, we are only utilizing the node struct and functions, building more original functionality. </br>
+ALLOCATING MEMORY: the original music library project began utilizing this, and we expanded on the concept</br>
+WORKING WITH FILES/FINDING INFORMATION ABOUT FILES: Songs can be added directly from the mp3 file tags. For this, we used the id3v2lib library (https://github.com/larsbs/id3v2lib/tree/dev).</br>
+SIGNALS: SIGINT to exit after double checking with user, SIGQUIT to exit directly</br>
+
   
 ### Instructions:
 
@@ -40,7 +44,9 @@ When the program is run, a menu is displayed: </br>
 (C)reate playlist -- User is prompted for playlist name. </br>
 (E)dit playlist -- List of playlists is printed, then user is prompted to select a playlist. The contents of the playlist are printed, and a sub-menu is displayed: </br>
 &nbsp;&nbsp;&nbsp;&nbsp;(R)emove song -- User is asked for title and artist of song, and the song is removed. </br>
-&nbsp;&nbsp;&nbsp;&nbsp;(A)dd song -- User is asked to manually input the title, artist, album, genre, and year of song, and the song is added. </br>
+&nbsp;&nbsp;&nbsp;&nbsp;(A)dd song -- Sub-menu is displayed: </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(M)anually add -- User is asked to manually input the title, artist, album, genre, and year of song, and the song is added. </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(L)oad from mp3 album -- List of mp3 albums is printed, then user is prompted to select an album. The songs are added to the playlist. </br>
 (V)iew playlist -- List of playlists is printed, then user is prompted to select a playlist. The contents of the playlist are printed.</br>
 (P)lay playlist -- List of playlists is printed, then user is prompted to select a playlist. The program simulates playlist the playlist in order through ASCII art</br>
 (S)huffle playlist -- List of playlists is printed, then user is prompted to select a playlist. The contents of the playlist are printed, and a sub-menu is displayed: </br>
