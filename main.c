@@ -46,7 +46,6 @@ int main(){
       printf("(V)iew playlist\n"); //working
       printf("(P)lay playlist\n"); //working
       printf("(S)huffle playlist\n"); //working
-      printf("(T)esting\n"); //temporary
       printf("(L)eave\n");
 
       fgets(options, sizeof(options), stdin); //take in first selection
@@ -64,27 +63,29 @@ int main(){
         create_playlist(line);
       }
       else if (choice == 'E' || choice == 'e'){
+        char edit[256];
+        char editing;
         printf("\n***Playlists*** \n"); //should always have a default there
         list_playlists();
         printf("Select your playlist: \n");
-        fgets(line, sizeof(line), stdin);
-        line[strlen(line)-1] = 0;
-        strcat(line, ".dat");
-        curr_list = read_from_playlist(line); //crashes if you put the wrong thing
-        printf("***Titles in %s:***\n", line);
+        fgets(edit, sizeof(edit), stdin);
+        edit[strlen(edit)-1] = 0;
+        strcat(edit, ".dat");
+        curr_list = read_from_playlist(edit); //crashes if you put the wrong thing
+        printf("***Titles in %s:***\n", edit);
         print_song_list(curr_list);
         printf("(R)emove or (A)dd song?\n");
         fgets(options, sizeof(options), stdin);
         sscanf(options, " %c ", &choice);
         if (choice == 'R' || choice == 'r'){
-          remove_song(line);
+          remove_song(edit);
         }
         else if (choice == 'A' || choice == 'a'){
           printf("(M)anually add or (L)oad from mp3 album?\n");
           fgets(options, sizeof(options), stdin);
           sscanf(options, " %c ", &choice);
           if (choice == 'M' || choice == 'm'){
-            add_song(line);
+            add_song(edit);
           }
           else if (choice == 'L' || choice == 'l'){
             list_mp3();
@@ -93,7 +94,7 @@ int main(){
             fgets(album, sizeof(album), stdin);
             album[strlen(album)-1] = 0;
             curr_list = insert_from_mp3(curr_list, album);
-            write_to_playlist(line, curr_list);
+            write_to_playlist(edit, curr_list);
           }
           else{
             printf("Please re-enter.\n");
@@ -158,56 +159,6 @@ int main(){
           }
           //possibly: sort by year
         }
-      }
-      else if (choice == 'T' || choice == 't'){ //testing
-
-        //create
-        /*printf("Name your playlist: ");
-        fgets(line, sizeof(line), stdin);
-        line[strlen(line)-1] = 0;
-        strcat(line, ".dat");
-        create_playlist(line);
-
-        //get a song list
-        char songs[9][4][100 * sizeof(char)] = {
-          {"The Beatles", "I Will", "white album", "pop"},
-          {"The Beatles", "Julia", "white album", "pop"},
-          {"Dire Straits", "Sultans of Swing", "dire straits", "pop"},
-          {"Steely Dan", "Dirty Work", "dan", "pop"},
-          {"Paul Mccartney", "Don't Let It Bring You Down", "mc", "pop"},
-          {"The Pierces", "You'll Be Mine", "music", "pop"},
-          {"zxcursed", "never enough", "russian", "rap"},
-          {"The Who", "Behind Blue Eyes", "music", "pop"},
-          {"17 SEVENTEEN", "USB", "russian", "hyperpop"}
-        };
-        for (int i = 0; i<9; i++) {
-          curr_list = insert_back(curr_list, songs[i][0], songs[i][1], songs[i][2], songs[i][3], 2);
-        }
-
-        //write
-        curr_list = write_to_playlist(line, curr_list);
-
-        add_song(line);
-
-        curr_list = read_from_playlist(line);
-
-        print_song_list(curr_list);
-
-        remove_song(line);
-
-        curr_list = read_from_playlist(line);
-
-        print_song_list(curr_list);*/
-
-        //curr_list = read_from_playlist("tatertots.dat");
-
-        //print_song_list(curr_list);
-
-        //playing
-        //play_playlist(line);
-        curr_list = insert_from_mp3(curr_list, "abbey_road");
-        print_song_list(curr_list);
-
       }
       else if (choice == 'L' || choice == 'l'){
         printf("\nGOODBYE\n");
