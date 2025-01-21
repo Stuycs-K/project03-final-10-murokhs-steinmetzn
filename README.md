@@ -10,7 +10,8 @@ Sasha Murokh and Naomi Steinmetz
 
 This project is a music terminal interface inspired by Spotify and the layout of a Sony Walkman. Users are able to create playlists, add songs, and "play" them. While this project originally built off of the music library project, we are only utilizing the node struct and functions, building more original functionality. </br>
 ALLOCATING MEMORY: the original music library project began utilizing this, and we expanded on the concept</br>
-WORKING WITH FILES/FINDING INFORMATION ABOUT FILES: Songs can be added directly from the mp3 file tags. For this, we used the id3v2lib library (https://github.com/larsbs/id3v2lib/tree/dev).</br>
+WORKING WITH FILES: Reading and writing from .dat files for playlists</br>
+FINDING INFORMATION ABOUT FILES: Songs can be added directly from the mp3 file tags. For this, we used the id3v2lib library (https://github.com/larsbs/id3v2lib/tree/dev).</br>
 SIGNALS: SIGINT to exit after double checking with user, SIGQUIT to exit directly</br>
 
   
