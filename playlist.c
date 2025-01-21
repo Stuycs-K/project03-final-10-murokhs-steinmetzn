@@ -122,18 +122,15 @@ struct song_node* read_from_playlist(char * name){
   strcpy(line, name);
   char * path = "./playlists";
   chdir(path);
-  int arr_size;
-  int ind_bytes = sizeof(struct song_node);
-  struct stat stat_buffer;
-  stat(line, &stat_buffer);
-  arr_size = stat_buffer.st_size / ind_bytes;
   int playlist = open(line, O_RDONLY);
   while(playlist==-1){
     printf("Playlist not found. Please re-enter: \n");
     fgets(line, sizeof(line), stdin);
     line[strlen(line)-1] = 0;
     strcat(line, ".dat");
+    printf("Attempting to locate %s\n", line);
     playlist = open(line, O_RDONLY);
+    printf("Found?: %d\n", playlist);
     tries++;
     if (tries >= 5){
       printf("Exceeded number of tries.\n");
@@ -141,6 +138,11 @@ struct song_node* read_from_playlist(char * name){
       return NULL;
     }
   }
+  int arr_size;
+  int ind_bytes = sizeof(struct song_node);
+  struct stat stat_buffer;
+  stat(line, &stat_buffer);
+  arr_size = stat_buffer.st_size / ind_bytes;
   struct song_node*temp = NULL; //took away malloc bc that was messing with first node
   struct song_node*song_list = temp;
   struct song_node*curr = (struct song_node*) malloc(sizeof(struct song_node));
@@ -196,6 +198,10 @@ void remove_song(char * filename){
   char artist[256];
 
   struct song_node * curr_list = read_from_playlist(filename);
+  if (curr_list == NULL){
+    printf("Playlist current empty. No can do.\n");
+    return;
+  }
   printf("Title of song: ");
   fgets(line, sizeof(line), stdin);
   line[strlen(line)-1] = 0;
