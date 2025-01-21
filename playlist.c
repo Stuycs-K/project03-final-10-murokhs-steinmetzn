@@ -83,11 +83,25 @@ struct song_node * write_to_playlist(char * name, struct song_node* song_list){ 
 }
 
 void play_playlist(char * filename){
+  int tries = 0;
+  char line[256];
+  strcpy(line, filename);
   char * path = "./playlists";
   chdir(path);
   int r_file = open(filename, O_RDONLY, 0644);
-  if (r_file == -1){
-    err();
+  while(r_file==-1){
+    printf("Playlist not found. Please re-enter: \n");
+    fgets(line, sizeof(line), stdin);
+    line[strlen(line)-1] = 0;
+    strcat(line, ".dat");
+    printf("Attempting to locate %s\n", line);
+    r_file = open(line, O_RDONLY);
+    tries++;
+    if (tries >= 5){
+      printf("Exceeded number of tries.\n");
+      chdir("..");
+      return;
+    }
   }
   struct stat stat_buffer;
   stat(filename, &stat_buffer);
@@ -130,7 +144,6 @@ struct song_node* read_from_playlist(char * name){
     strcat(line, ".dat");
     printf("Attempting to locate %s\n", line);
     playlist = open(line, O_RDONLY);
-    printf("Found?: %d\n", playlist);
     tries++;
     if (tries >= 5){
       printf("Exceeded number of tries.\n");
