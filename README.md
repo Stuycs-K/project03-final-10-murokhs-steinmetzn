@@ -54,6 +54,6 @@ When the program is run, a menu is displayed: </br>
 &nbsp;&nbsp;&nbsp;&nbsp;(A)lphabetical by artist -- Sorts the playlist alphabetically by artist then by song.</br>
 &nbsp;&nbsp;&nbsp;&nbsp;(R)everse -- Reverses the order of the playlist. </br>
 (L)eave -- Exits the program. </br>
-&nbsp;&nbsp;&nbsp;&nbsp;**The program can also be exited by ctrl+C, prompting the user to verify whether they would like to exit.
+&nbsp;&nbsp;&nbsp;&nbsp;**The program can also be exited by ctrl+C, prompting the user to verify whether they would like to exit, or by ctrl+/ without double-checking.
 
 ### Video Link
